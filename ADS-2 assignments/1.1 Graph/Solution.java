@@ -28,6 +28,8 @@ class GraphList implements Graph {
 	}
 	public void addEdge(int v, int w) {
 		if (v == w) {
+			adj[v].add(w);
+			adj[w].add(v);
 			return;
 		}
 		if (!hasEdge(v, w)) {
@@ -90,6 +92,8 @@ class GraphMatrix implements Graph {
 	}
 	public void addEdge(int v, int w) {
 		if (v == w) {
+			matrix[v][w] = 1;
+			matrix[w][v] = 1;
 			return;
 		}
 		if (!hasEdge(v, w)) {
