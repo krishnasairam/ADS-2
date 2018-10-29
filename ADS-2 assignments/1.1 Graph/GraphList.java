@@ -32,7 +32,7 @@ class GraphList implements Graph {
 	 *
 	 * @return     { description_of_the_return_value }
 	 */
-	public int V() {
+	public int vertices() {
 		return this.V;
 	}
 	/**
@@ -40,7 +40,7 @@ class GraphList implements Graph {
 	 *
 	 * @return     { description_of_the_return_value }
 	 */
-	public int E() {
+	public int edges() {
 		return this.E;
 	}
 	/**
@@ -165,7 +165,7 @@ class GraphMatrix implements Graph {
 	 *
 	 * @return     { description_of_the_return_value }
 	 */
-	public int V() {
+	public int vertices() {
 		return this.V;
 	}
 	/**
@@ -173,7 +173,7 @@ class GraphMatrix implements Graph {
 	 *
 	 * @return     { description_of_the_return_value }
 	 */
-	public int E() {
+	public int edges() {
 		return this.E;
 	}
 	/**

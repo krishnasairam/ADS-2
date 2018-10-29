@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.NoSuchElementException;
 /**
  * Interface for graph.
  */
@@ -9,13 +8,13 @@ interface Graph {
 	 *
 	 * @return     { description_of_the_return_value }
 	 */
-	int V();
+	int vertices();
 	/**
 	 * number of edges.
 	 *
 	 * @return     { description_of_the_return_value }
 	 */
-	int E();
+	int edges();
 	/**
 	 * Adds an edge.
 	 *
