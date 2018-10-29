@@ -89,19 +89,24 @@ class GraphMatrix implements Graph {
 		return this.E;
 	}
 	public void addEdge(int v, int w) {
+		if (v == w) {
+			return;
+		}
+		if (!hasEdge(v, w)) {
+			E++;
+		}
 		matrix[v][w] = 1;
 		matrix[w][v] = 1;
-		E++;
 	}
 	public boolean hasEdge(int v, int w) {
-        return (matrix[v][w] == 1);
-    }
+		return (matrix[v][w] == 1);
+	}
 	public String toString() {
 		String s = "";
+		s += V + " vertices, " + E + " edges" + '\n';
 		if (E == 0) {
 			s = "No edges ";
 		} else {
-			s += V + " vertices, " + E + " edges" + '\n';
 			for (int i = 0; i < V; i++) {
 				for (int j = 0; j < V; j++) {
 					s += matrix[i][j] + " ";
