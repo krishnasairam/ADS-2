@@ -27,7 +27,7 @@ class GraphList implements Graph {
 		return this.E;
 	}
 	public void addEdge(int v, int w) {
-		if (v != w && !hasEdge(v, w)) {
+		if (v == w && hasEdge(v, w)) {
 			E++;
 			adj[v].add(w);
 			adj[w].add(v);
