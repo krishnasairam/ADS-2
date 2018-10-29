@@ -133,10 +133,8 @@ public final class Solution {
 			temp = e;
 			GraphMatrix sol = new GraphMatrix(v);
 			while (temp > 0) {
-				int p = scan.nextInt();
-				int q = scan.nextInt();
-				scan.nextLine();
-				sol.addEdge(p, q);
+				String[] fun = scan.nextLine().split(" ");
+				sol.addEdge(Integer.parseInt(fun[0]), Integer.parseInt(fun[1]));
 				temp--;
 			}
 			System.out.println(sol);
