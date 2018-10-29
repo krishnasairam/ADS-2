@@ -52,7 +52,6 @@ class GraphList implements Graph {
 			for (int w : adj[v]) {
 				s += data[w] + " ";
 			}
-			// s = s.substring(0, s.length() - 1);
 			s += '\n';
 		}
 		return s.substring(0, s.length() - 1);
@@ -91,7 +90,6 @@ class GraphMatrix implements Graph {
 		return false;
 	}
 	public String toString() {
-		// StringBuilder s = new StringBuilder();
 		String s = "";
 		s += V + " vertices, " + E + " edges " + '\n';
 		for (int i = 0; i < V; i++) {
@@ -102,8 +100,7 @@ class GraphMatrix implements Graph {
 			s += ('\n');
 		}
 
-		return s.substring(0, s.length() - (V + 1));
-		//public String toString() {
+		return s.substring(0, s.length() -  1);
 	}
 }
 /**
@@ -135,7 +132,7 @@ public final class Solution {
 		} else if (s.equals("Matrix")) {
 			temp = e;
 			GraphMatrix sol = new GraphMatrix(v);
-			while (temp < 0) {
+			while (temp > 0) {
 				int p = scan.nextInt();
 				int q = scan.nextInt();
 				scan.nextLine();
