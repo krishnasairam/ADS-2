@@ -27,11 +27,11 @@ class GraphList implements Graph {
 		return this.E;
 	}
 	public void addEdge(int v, int w) {
-		if (v == w && hasEdge(v, w)) {
+		//if (v == w && hasEdge(v, w)) {
 			E++;
 			adj[v].add(w);
 			adj[w].add(v);
-		}
+		//}
 	}
 	public Iterable<Integer> adj(int v) {
 		return adj[v];
@@ -52,9 +52,9 @@ class GraphList implements Graph {
 		}
 		return false;
 	}
-	public String display(String[] data) {
+	public String display(String[] data, int i) {
 		String s = "";
-		s += V + " vertices, " + E + " edges" + '\n';
+		s += V + " vertices, " + i + " edges" + '\n';
 		for (int v = 0; v < V; v++) {
 			s += data[v] + ": ";
 			for (int w : adj[v]) {
@@ -97,9 +97,9 @@ class GraphMatrix implements Graph {
 	public boolean hasEdge(int v, int w) {
 		return false;
 	}
-	public String toString() {
+	public String display(int e) {
 		String s = "";
-		s += V + " vertices, " + E + " edges" + '\n';
+		s += V + " vertices, " + e + " edges" + '\n';
 		for (int i = 0; i < V; i++) {
 			for (int j = 0; j < V; j++) {
 				s += matrix[i][j] + " ";
@@ -136,7 +136,7 @@ public final class Solution {
 				list.addEdge(Integer.parseInt(fun[0]), Integer.parseInt(fun[1]));
 				temp--;
 			}
-			System.out.println(list.display(data));
+			System.out.println(list.display(data, e));
 		} else if (s.equals("Matrix")) {
 			temp = e;
 			GraphMatrix sol = new GraphMatrix(v);
@@ -145,7 +145,7 @@ public final class Solution {
 				sol.addEdge(Integer.parseInt(fun[0]), Integer.parseInt(fun[1]));
 				temp--;
 			}
-			System.out.println(sol);
+			System.out.println(sol.display(e));
 		}
 	}
 }

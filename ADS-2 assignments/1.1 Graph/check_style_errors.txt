@@ -65,6 +65,7 @@ Starting audit...
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:39:39: Parameter w should be final. [FinalParameters]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:55:9: Missing a Javadoc comment. [JavadocMethod]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:55:31: Parameter data should be final. [FinalParameters]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:55:46: Parameter i should be final. [FinalParameters]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:69: Missing a Javadoc comment. [JavadocType]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:70:9: Missing a Javadoc comment. [JavadocVariable]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:70:21: Name 'V' must match pattern '^[a-z][a-zA-Z0-9]*$'. [MemberName]
@@ -87,9 +88,10 @@ Starting audit...
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:97:32: Parameter v should be final. [FinalParameters]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:97:39: Parameter w should be final. [FinalParameters]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:100:9: Missing a Javadoc comment. [JavadocMethod]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:100:31: Parameter e should be final. [FinalParameters]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:117:1: Utility classes should not have a public or default constructor. [HideUtilityClassConstructor]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:118:9: Missing a Javadoc comment. [JavadocMethod]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:136: Line is longer than 80 characters (found 97). [LineLength]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:145: Line is longer than 80 characters (found 96). [LineLength]
 Audit done.
-Checkstyle ends with 66 errors.
+Checkstyle ends with 68 errors.
