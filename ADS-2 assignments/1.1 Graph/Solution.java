@@ -91,12 +91,12 @@ class GraphMatrix implements Graph {
 	}
 	public String toString() {
 		String s = "";
-		s += V + " vertices, " + E + " edges " + '\n';
+		s += V + " vertices, " + E + " edges" + '\n';
 		for (int i = 0; i < V; i++) {
 			for (int j = 0; j < V; j++) {
 				s += matrix[i][j] + " ";
 			}
-			s = s.substring(0, s.length() - 1);
+			s = s.substring(0, s.length());
 			s += ('\n');
 		}
 
