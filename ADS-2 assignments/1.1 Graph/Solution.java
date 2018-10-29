@@ -45,16 +45,17 @@ class GraphList implements Graph {
 		return true;
 	}
 	public String display(String[] data) {
-		StringBuilder s = new StringBuilder();
-		s.append(V + " vertices, " + E + " edges " + '\n');
+		String s = "";
+		s += V + " vertices, " + E + " edges " + '\n';
 		for (int v = 0; v < V; v++) {
-			s.append(data[v] + ": ");
+			s += data[v] + ": ";
 			for (int w : adj[v]) {
-				s.append(data[w] + " ");
+				s += data[w] + " ";
 			}
-			s.append('\n');
+			// s = s.substring(0, s.length() - 1);
+			s += '\n';
 		}
-		return s.toString();
+		return s.substring(0, s.length() - 1);
 	}
 
 }
@@ -101,7 +102,7 @@ class GraphMatrix implements Graph {
 			s += ('\n');
 		}
 
-		return s.substring(0, s.length() - V);
+		return s.substring(0, s.length() - (V + 1));
 		//public String toString() {
 	}
 }
