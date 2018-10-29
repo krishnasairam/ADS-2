@@ -1,130 +1,46 @@
 import java.util.Scanner;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+/**
+ * Interface for graph.
+ */
 interface Graph {
+	/**
+	 * number of vertices.
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public int V();
+	/**
+	 * number of edges.
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public int E();
+	/**
+	 * Adds an edge.
+	 *
+	 * @param      v     { parameter_description }
+	 * @param      w     { parameter_description }
+	 */
 	public void addEdge(int v, int w);
+	/**
+	 * iterable.
+	 *
+	 * @param      v     { parameter_description }
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public Iterable<Integer> adj(int v);
+	/**
+	 * Determines if it has edge.
+	 *
+	 * @param      v     { parameter_description }
+	 * @param      w     { parameter_description }
+	 *
+	 * @return     True if has edge, False otherwise.
+	 */
 	public boolean hasEdge(int v, int w);
-}
-class GraphList implements Graph {
-	private int V;
-	private int E;
-	private Bag<Integer>[] adj;
-	GraphList(int V1) {
-		this.V = V1;
-		this.E = 0;
-		this.adj = (Bag<Integer>[]) new Bag[V];
-		for (int i = 0; i < V; i++) {
-			adj[i] = new Bag<Integer>();
-		}
-	}
-	public int V() {
-		return this.V;
-	}
-	public int E() {
-		return this.E;
-	}
-	public void addEdge(int v, int w) {
-		if (v == w) {
-			return;
-		}
-		E++;
-		adj[v].add(w);
-		adj[w].add(v);
-	}
-
-	public Iterable<Integer> adj(int v) {
-		return adj[v];
-	}
-	public boolean hasEdge(final int v, final int w) {
-		int count = 0;
-		for (int i : adj[v]) {
-			if (i == w) {
-				count += 1;
-				break;
-			}
-		}
-		for (int i : adj[w]) {
-			if (i == v) {
-				count += 1;
-				break;
-			}
-		}
-		if (count == 2) {
-			return true;
-		}
-		return false;
-	}
-	public String display(String[] data) {
-		String s = "";
-		s += V + " vertices, " + E + " edges" + '\n';
-		if (E == 0) {
-			s += "No edges ";
-		} else {
-			for (int v = 0; v < V; v++) {
-				s += data[v] + ": ";
-				for (int w : adj[v]) {
-					s += data[w] + " ";
-				}
-				s += '\n';
-			}
-		}
-		return s.substring(0, s.length() - 1);
-	}
-
-}
-class GraphMatrix implements Graph {
-	private int V;
-	private int E;
-	private int[][] matrix;
-	GraphMatrix(int V1) {
-		this.V = V1;
-		this.E = 0;
-		this.matrix = new int[V][V];
-		for (int i = 0; i < V; i++) {
-			for (int j = 0; j < V; j++) {
-				matrix[i][j] = 0;
-			}
-		}
-	}
-	public Iterable<Integer> adj(int v) {
-		return null;
-	}
-	public int V() {
-		return this.V;
-	}
-	public int E() {
-		return this.E;
-	}
-	public void addEdge(int v, int w) {
-		if (!hasEdge(v, w) && v != w) {
-			E++;
-		}
-		matrix[v][w] = 1;
-		matrix[w][v] = 1;
-	}
-	public boolean hasEdge(int v, int w) {
-		return (matrix[v][w] == 1);
-	}
-	public String toString() {
-		String s = "";
-		s += V + " vertices, " + E + " edges" + '\n';
-		if (E == 0) {
-			s += "No edges ";
-		} else {
-			for (int i = 0; i < V; i++) {
-				for (int j = 0; j < V; j++) {
-					s += matrix[i][j] + " ";
-				}
-				s = s.substring(0, s.length());
-				s += ('\n');
-			}
-		}
-
-		return s.substring(0, s.length() -  1);
-	}
 }
 /**
  * Class for solution.
@@ -148,7 +64,8 @@ public final class Solution {
 			GraphList list = new GraphList(v);
 			while (temp > 0) {
 				String[] fun = scan.nextLine().split(" ");
-				list.addEdge(Integer.parseInt(fun[0]), Integer.parseInt(fun[1]));
+				list.addEdge(Integer.parseInt(fun[0]),
+				 Integer.parseInt(fun[1]));
 				temp--;
 			}
 			System.out.println(list.display(data));
@@ -157,7 +74,8 @@ public final class Solution {
 			GraphMatrix sol = new GraphMatrix(v);
 			while (temp > 0) {
 				String[] fun = scan.nextLine().split(" ");
-				sol.addEdge(Integer.parseInt(fun[0]), Integer.parseInt(fun[1]));
+				sol.addEdge(Integer.parseInt(fun[0]),
+				 Integer.parseInt(fun[1]));
 				temp--;
 			}
 			System.out.println(sol);

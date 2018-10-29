@@ -119,11 +119,27 @@ class GraphList implements Graph {
 	}
 
 }
-
+/**
+ * Class for graph matrix.
+ */
 class GraphMatrix implements Graph {
+	/**
+	 * number of vertices.
+	 */
 	private int V;
+	/**
+	 * number of edges.
+	 */
 	private int E;
+	/**
+	 * matrix.
+	 */
 	private int[][] matrix;
+	/**
+	 * Constructs the object.
+	 *
+	 * @param      V1    The v 1
+	 */
 	GraphMatrix(int V1) {
 		this.V = V1;
 		this.E = 0;
@@ -134,15 +150,38 @@ class GraphMatrix implements Graph {
 			}
 		}
 	}
+	/**
+	 * Iterable.
+	 *
+	 * @param      v     { parameter_description }
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public Iterable<Integer> adj(int v) {
 		return null;
 	}
+	/**
+	 * number of vertices.
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public int V() {
 		return this.V;
 	}
+	/**
+	 * number of edges.
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public int E() {
 		return this.E;
 	}
+	/**
+	 * Adds an edge.
+	 *
+	 * @param      v     { parameter_description }
+	 * @param      w     { parameter_description }
+	 */
 	public void addEdge(int v, int w) {
 		if (!hasEdge(v, w) && v != w) {
 			E++;
@@ -150,9 +189,22 @@ class GraphMatrix implements Graph {
 		matrix[v][w] = 1;
 		matrix[w][v] = 1;
 	}
+	/**
+	 * Determines if it has edge.
+	 *
+	 * @param      v     { parameter_description }
+	 * @param      w     { parameter_description }
+	 *
+	 * @return     True if has edge, False otherwise.
+	 */
 	public boolean hasEdge(int v, int w) {
 		return (matrix[v][w] == 1);
 	}
+	/**
+	 * Returns a string representation of the object.
+	 *
+	 * @return     String representation of the object.
+	 */
 	public String toString() {
 		String s = "";
 		s += V + " vertices, " + E + " edges" + '\n';
