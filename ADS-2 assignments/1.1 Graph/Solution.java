@@ -27,22 +27,30 @@ class GraphList implements Graph {
 		return this.E;
 	}
 	public void addEdge(int v, int w) {
-		//if (v != w && !hasEdge(v, w)) {
-		E++;
-		adj[v].add(w);
-		adj[w].add(v);
-		//}
+		if (v != w && !hasEdge(v, w)) {
+			E++;
+			adj[v].add(w);
+			adj[w].add(v);
+		}
 	}
 	public Iterable<Integer> adj(int v) {
 		return adj[v];
 	}
 	public boolean hasEdge(int v, int w) {
+		int count = 0;
 		for (int each : adj[v]) {
 			if (each != w) {
-				return false;
+				count++;
 			}
 		}
-		return true;
+		for (int each : adj[v]) {
+			if (each != w) {
+				count++;
+			}
+		} if (count == 2) {
+			return true;
+		}
+		return false;
 	}
 	public String display(String[] data) {
 		String s = "";
