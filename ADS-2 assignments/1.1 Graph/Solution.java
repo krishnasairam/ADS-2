@@ -101,7 +101,7 @@ class GraphMatrix implements Graph {
 			s += ('\n');
 		}
 
-		return s.substring(0, s.length() - 1);
+		return s.substring(0, s.length() - V);
 		//public String toString() {
 	}
 }
