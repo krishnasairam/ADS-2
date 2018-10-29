@@ -49,10 +49,10 @@ class GraphList implements Graph {
 	}
 	public String display(String[] data) {
 		String s = "";
+		s += V + " vertices, " + E + " edges" + '\n';
 		if (E == 0) {
-			s = "No edges ";
+			s += "No edges ";
 		} else {
-			s += V + " vertices, " + E + " edges" + '\n';
 			for (int v = 0; v < V; v++) {
 				s += data[v] + ": ";
 				for (int w : adj[v]) {
@@ -105,7 +105,7 @@ class GraphMatrix implements Graph {
 		String s = "";
 		s += V + " vertices, " + E + " edges" + '\n';
 		if (E == 0) {
-			s = "No edges ";
+			s += "No edges ";
 		} else {
 			for (int i = 0; i < V; i++) {
 				for (int j = 0; j < V; j++) {
