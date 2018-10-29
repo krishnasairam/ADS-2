@@ -27,11 +27,11 @@ class GraphList implements Graph {
 		return this.E;
 	}
 	public void addEdge(int v, int w) {
-		if (v != w && !hasEdge(v, w)) {
-			E++;
-			adj[v].add(w);
-			adj[w].add(v);
-		}
+		//if (v != w && !hasEdge(v, w)) {
+		E++;
+		adj[v].add(w);
+		adj[w].add(v);
+		//}
 	}
 	public Iterable<Integer> adj(int v) {
 		return adj[v];
@@ -44,14 +44,14 @@ class GraphList implements Graph {
 		}
 		return true;
 	}
-	public String toString() {
-		System.out.println(E);
+	public String display(String[] data) {
+		System.out.println(V);
 		StringBuilder s = new StringBuilder();
 		s.append(V + " vertices, " + E + " edges " + '\n');
 		for (int v = 0; v < V; v++) {
-			s.append(v + ": ");
+			s.append(data[v] + ": ");
 			for (int w : adj[v]) {
-				s.append(w + " ");
+				s.append(data[w] + " ");
 			}
 			s.append('\n');
 		}
@@ -62,16 +62,19 @@ class GraphList implements Graph {
 class GraphMatrix implements Graph {
 	private int V;
 	private int E;
-	private boolean[][] matrix;
+	private int[][] matrix;
 	GraphMatrix(int V1) {
 		this.V = V1;
 		this.E = 0;
-		this.matrix = new boolean[V][V];
+		this.matrix = new int[V][V];
 		for (int i = 0; i < V; i++) {
 			for (int j = 0; j < V; j++) {
-				matrix[i][j] = false;
+				matrix[i][j] = 0;
 			}
 		}
+	}
+	public Iterable<Integer> adj(int v) {
+		return null;
 	}
 	public int V() {
 		return this.V;
@@ -80,58 +83,27 @@ class GraphMatrix implements Graph {
 		return this.E;
 	}
 	public void addEdge(int v, int w) {
-		matrix[v][w] = true;
-		matrix[w][v] = true;
+		matrix[v][w] = 1;
+		matrix[w][v] = 1;
 		E++;
-	}
-	public Iterable<Integer> adj(int v) {
-		return new AdjIterator(v);
-	}
-	private class AdjIterator implements Iterator<Integer>, Iterable<Integer> {
-		private int v;
-		private int w = 0;
-
-		AdjIterator(int v) {
-			this.v = v;
-		}
-
-		public Iterator<Integer> iterator() {
-			return this;
-		}
-
-		public boolean hasNext() {
-			while (w < V) {
-				if (matrix[v][w]) return true;
-				w++;
-			}
-			return false;
-		}
-
-		public Integer next() {
-			if (!hasNext()) {
-				throw new NoSuchElementException();
-			}
-			return w++;
-		}
-
-		public void remove()  {
-			throw new UnsupportedOperationException();
-		}
 	}
 	public boolean hasEdge(int v, int w) {
 		return false;
 	}
 	public String toString() {
-		StringBuilder s = new StringBuilder();
-		s.append(V + " " + E + '\n');
-		for (int v = 0; v < V; v++) {
-			s.append(v + ": ");
-			for (int w : adj(v)) {
-				s.append(w + " ");
+		// StringBuilder s = new StringBuilder();
+		String s = "";
+		s += V + " vertices, " + E + " edges " + '\n';
+		for (int i = 0; i < V; i++) {
+			for (int j = 0; j < V; j++) {
+				s += matrix[i][j] + " ";
 			}
-			s.append('\n');
+			s = s.substring(0, s.length() - 1);
+			s += ('\n');
 		}
-		return s.toString();
+
+		return s.substring(0, s.length() - 1);
+		//public String toString() {
 	}
 }
 /**
@@ -161,7 +133,7 @@ public final class Solution {
 				list.addEdge(p, q);
 				temp--;
 			}
-			System.out.println(list);
+			System.out.println(list.display(data));
 		} else if (s.equals("Matrix")) {
 			temp = e;
 			GraphMatrix sol = new GraphMatrix(v);
