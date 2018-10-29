@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 /**
  * Interface for graph.
@@ -10,20 +9,20 @@ interface Graph {
 	 *
 	 * @return     { description_of_the_return_value }
 	 */
-	public int V();
+	int V();
 	/**
 	 * number of edges.
 	 *
 	 * @return     { description_of_the_return_value }
 	 */
-	public int E();
+	int E();
 	/**
 	 * Adds an edge.
 	 *
 	 * @param      v     { parameter_description }
 	 * @param      w     { parameter_description }
 	 */
-	public void addEdge(int v, int w);
+	void addEdge(int v, int w);
 	/**
 	 * iterable.
 	 *
@@ -31,7 +30,7 @@ interface Graph {
 	 *
 	 * @return     { description_of_the_return_value }
 	 */
-	public Iterable<Integer> adj(int v);
+	Iterable<Integer> adj(int v);
 	/**
 	 * Determines if it has edge.
 	 *
@@ -40,16 +39,20 @@ interface Graph {
 	 *
 	 * @return     True if has edge, False otherwise.
 	 */
-	public boolean hasEdge(int v, int w);
+	boolean hasEdge(int v, int w);
 }
 /**
  * Class for solution.
  */
 public final class Solution {
+	/**
+	 * Constructs the object.
+	 */
 	public Solution() {
+		// empty constructor.
 	}
 	/**
-	 * { function_description }.
+	 * main method.
 	 *
 	 * @param      args  The arguments
 	 */

@@ -55,17 +55,10 @@ Audit done.
 Checkstyle ends with 26 errors.
 Starting audit...
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:0: File does not end with a newline. [NewlineAtEndOfFile]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:2:8: Unused import - java.util.Iterator. [UnusedImports]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:3:8: Unused import - java.util.NoSuchElementException. [UnusedImports]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:8:1: File contains tab characters (this is the first instance). [FileTabCharacter]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:13:9: Redundant 'public' modifier. [RedundantModifier]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:13:20: Name 'V' must match pattern '^[a-z][a-zA-Z0-9]*$'. [MethodName]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:19:9: Redundant 'public' modifier. [RedundantModifier]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:19:20: Name 'E' must match pattern '^[a-z][a-zA-Z0-9]*$'. [MethodName]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:26:9: Redundant 'public' modifier. [RedundantModifier]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:34:9: Redundant 'public' modifier. [RedundantModifier]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:43:9: Redundant 'public' modifier. [RedundantModifier]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:48:1: Utility classes should not have a public or default constructor. [HideUtilityClassConstructor]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:49:9: Missing a Javadoc comment. [JavadocMethod]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:2:8: Unused import - java.util.NoSuchElementException. [UnusedImports]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:7:1: File contains tab characters (this is the first instance). [FileTabCharacter]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:12:13: Name 'V' must match pattern '^[a-z][a-zA-Z0-9]*$'. [MethodName]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:18:13: Name 'E' must match pattern '^[a-z][a-zA-Z0-9]*$'. [MethodName]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\1.1 Graph\Solution.java:47:1: Utility classes should not have a public or default constructor. [HideUtilityClassConstructor]
 Audit done.
-Checkstyle ends with 13 errors.
+Checkstyle ends with 6 errors.
