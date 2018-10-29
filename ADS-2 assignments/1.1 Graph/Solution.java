@@ -32,16 +32,27 @@ class GraphList implements Graph {
 		}
 		adj[v].add(w);
 		adj[w].add(v);
-    }
+	}
 
 	public Iterable<Integer> adj(int v) {
 		return adj[v];
 	}
 	public boolean hasEdge(final int v, final int w) {
-		for (int k : adj[v]) {
-			if (k == w) {
-				return true;
+		int count = 0;
+		for (int i : adj[v]) {
+			if (i == w) {
+				count += 1;
+				break;
 			}
+		}
+		for (int i : adj[w]) {
+			if (i == v) {
+				count += 1;
+				break;
+			}
+		}
+		if (count == 2) {
+			return true;
 		}
 		return false;
 	}
