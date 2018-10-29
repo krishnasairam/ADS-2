@@ -27,28 +27,23 @@ class GraphList implements Graph {
 		return this.E;
 	}
 	public void addEdge(int v, int w) {
-		//if (v == w && hasEdge(v, w)) {
-		E++;
+		if (v == w) {
+			return;
+		}
+		if (!hasEdge(v, w)) {
+			E++;
+		}
 		adj[v].add(w);
 		adj[w].add(v);
-		//}
 	}
 	public Iterable<Integer> adj(int v) {
 		return adj[v];
 	}
-	public boolean hasEdge(int v, int w) {
-		int count = 0;
-		for (int each : adj[v]) {
-			if (each != w) {
-				count++;
+	public boolean hasEdge(final int v, final int w) {
+		for (int k : adj[v]) {
+			if (k == w) {
+				return true;
 			}
-		}
-		for (int each : adj[v]) {
-			if (each != w) {
-				count++;
-			}
-		} if (count == 2) {
-			return true;
 		}
 		return false;
 	}
@@ -99,8 +94,8 @@ class GraphMatrix implements Graph {
 		E++;
 	}
 	public boolean hasEdge(int v, int w) {
-		return false;
-	}
+        return (matrix[v][w] == 1);
+    }
 	public String toString() {
 		String s = "";
 		if (E == 0) {
