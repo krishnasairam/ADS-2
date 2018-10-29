@@ -28,9 +28,9 @@ class GraphList implements Graph {
 	}
 	public void addEdge(int v, int w) {
 		//if (v == w && hasEdge(v, w)) {
-			E++;
-			adj[v].add(w);
-			adj[w].add(v);
+		E++;
+		adj[v].add(w);
+		adj[w].add(v);
 		//}
 	}
 	public Iterable<Integer> adj(int v) {
@@ -52,15 +52,19 @@ class GraphList implements Graph {
 		}
 		return false;
 	}
-	public String display(String[] data, int i) {
+	public String display(String[] data) {
 		String s = "";
-		s += V + " vertices, " + i + " edges" + '\n';
-		for (int v = 0; v < V; v++) {
-			s += data[v] + ": ";
-			for (int w : adj[v]) {
-				s += data[w] + " ";
+		if (E == 0) {
+			s = "No edges ";
+		} else {
+			s += V + " vertices, " + E + " edges" + '\n';
+			for (int v = 0; v < V; v++) {
+				s += data[v] + ": ";
+				for (int w : adj[v]) {
+					s += data[w] + " ";
+				}
+				s += '\n';
 			}
-			s += '\n';
 		}
 		return s.substring(0, s.length() - 1);
 	}
@@ -97,15 +101,19 @@ class GraphMatrix implements Graph {
 	public boolean hasEdge(int v, int w) {
 		return false;
 	}
-	public String display(int e) {
+	public String toString() {
 		String s = "";
-		s += V + " vertices, " + e + " edges" + '\n';
-		for (int i = 0; i < V; i++) {
-			for (int j = 0; j < V; j++) {
-				s += matrix[i][j] + " ";
+		if (E == 0) {
+			s = "No edges ";
+		} else {
+			s += V + " vertices, " + E + " edges" + '\n';
+			for (int i = 0; i < V; i++) {
+				for (int j = 0; j < V; j++) {
+					s += matrix[i][j] + " ";
+				}
+				s = s.substring(0, s.length());
+				s += ('\n');
 			}
-			s = s.substring(0, s.length());
-			s += ('\n');
 		}
 
 		return s.substring(0, s.length() -  1);
@@ -136,7 +144,7 @@ public final class Solution {
 				list.addEdge(Integer.parseInt(fun[0]), Integer.parseInt(fun[1]));
 				temp--;
 			}
-			System.out.println(list.display(data, e));
+			System.out.println(list.display(data));
 		} else if (s.equals("Matrix")) {
 			temp = e;
 			GraphMatrix sol = new GraphMatrix(v);
@@ -145,7 +153,7 @@ public final class Solution {
 				sol.addEdge(Integer.parseInt(fun[0]), Integer.parseInt(fun[1]));
 				temp--;
 			}
-			System.out.println(sol.display(e));
+			System.out.println(sol);
 		}
 	}
 }
