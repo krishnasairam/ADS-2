@@ -46,7 +46,7 @@ class GraphList implements Graph {
 	}
 	public String display(String[] data) {
 		String s = "";
-		s += V + " vertices, " + E + " edges " + '\n';
+		s += V + " vertices, " + E + " edges" + '\n';
 		for (int v = 0; v < V; v++) {
 			s += data[v] + ": ";
 			for (int w : adj[v]) {
