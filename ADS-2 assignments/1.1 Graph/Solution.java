@@ -45,6 +45,7 @@ class GraphList implements Graph {
 		return true;
 	}
 	public String toString() {
+		System.out.println(E);
 		StringBuilder s = new StringBuilder();
 		s.append(V + " vertices, " + E + " edges " + '\n');
 		for (int v = 0; v < V; v++) {
@@ -159,8 +160,8 @@ public final class Solution {
 				scan.nextLine();
 				list.addEdge(p, q);
 				temp--;
-				System.out.println(list);
 			}
+			System.out.println(list);
 		} else if (s.equals("Matrix")) {
 			temp = e;
 			GraphMatrix sol = new GraphMatrix(v);
@@ -170,8 +171,8 @@ public final class Solution {
 				scan.nextLine();
 				sol.addEdge(p, q);
 				temp--;
-				System.out.println(sol);
 			}
+			System.out.println(sol);
 		}
 	}
 }
