@@ -127,10 +127,8 @@ public final class Solution {
 		if (s.equals("List")) {
 			GraphList list = new GraphList(v);
 			while (temp > 0) {
-				int p = scan.nextInt();
-				int q = scan.nextInt();
-				scan.nextLine();
-				list.addEdge(p, q);
+				String[] fun = scan.nextLine().split(" ");
+				list.addEdge(Integer.parseInt(fun[0]), Integer.parseInt(fun[1]));
 				temp--;
 			}
 			System.out.println(list.display(data));
