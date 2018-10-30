@@ -3,11 +3,11 @@
  */
 class GraphList implements Graph {
 	/**
-	 * { var_description }
+	 * vertices.
 	 */
 	private int vertices;
 	/**
-	 * { var_description }
+	 * edges.
 	 */
 	private int edge;
 	/**
@@ -140,7 +140,7 @@ class GraphMatrix implements Graph {
 	 *
 	 * @param      V1    The v 1
 	 */
-	GraphMatrix(int v1) {
+	GraphMatrix(final int v1) {
 		this.vertices = v1;
 		this.edges = 0;
 		this.matrix = new int[vertices][vertices];
