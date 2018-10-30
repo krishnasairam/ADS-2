@@ -5,11 +5,11 @@ class GraphList implements Graph {
 	/**
 	 * { var_description }
 	 */
-	private int V;
+	private int vertices;
 	/**
 	 * { var_description }
 	 */
-	private int E;
+	private int edge;
 	/**
 	 * { var_description }
 	 */
@@ -17,13 +17,13 @@ class GraphList implements Graph {
 	/**
 	 * Constructs the object.
 	 *
-	 * @param      V1    The v 1
+	 * @param      v1    The v 1
 	 */
-	GraphList(int V1) {
-		this.V = V1;
-		this.E = 0;
-		this.adj = (Bag<Integer>[]) new Bag[V];
-		for (int i = 0; i < V; i++) {
+	GraphList(final int v1) {
+		this.vertices = v1;
+		this.edge = 0;
+		this.adj = (Bag<Integer>[]) new Bag[vertices];
+		for (int i = 0; i < vertices; i++) {
 			adj[i] = new Bag<Integer>();
 		}
 	}
@@ -33,7 +33,7 @@ class GraphList implements Graph {
 	 * @return     { description_of_the_return_value }
 	 */
 	public int vertices() {
-		return this.V;
+		return this.vertices;
 	}
 	/**
 	 * number of edges.
@@ -41,7 +41,7 @@ class GraphList implements Graph {
 	 * @return     { description_of_the_return_value }
 	 */
 	public int edges() {
-		return this.E;
+		return this.edge;
 	}
 	/**
 	 * Adds an edge.
@@ -53,7 +53,7 @@ class GraphList implements Graph {
 		if (v == w) {
 			return;
 		}
-		E++;
+		edge++;
 		adj[v].add(w);
 		adj[w].add(v);
 	}
@@ -103,11 +103,11 @@ class GraphList implements Graph {
 	 */
 	public String display(String[] data) {
 		String s = "";
-		s += V + " vertices, " + E + " edges" + '\n';
-		if (E == 0) {
+		s += vertices + " vertices, " + edge + " edges" + '\n';
+		if (edge == 0) {
 			s += "No edges ";
 		} else {
-			for (int v = 0; v < V; v++) {
+			for (int v = 0; v < vertices; v++) {
 				s += data[v] + ": ";
 				for (int w : adj[v]) {
 					s += data[w] + " ";
@@ -126,11 +126,11 @@ class GraphMatrix implements Graph {
 	/**
 	 * number of vertices.
 	 */
-	private int V;
+	private int vertices;
 	/**
 	 * number of edges.
 	 */
-	private int E;
+	private int edges;
 	/**
 	 * matrix.
 	 */
@@ -140,12 +140,12 @@ class GraphMatrix implements Graph {
 	 *
 	 * @param      V1    The v 1
 	 */
-	GraphMatrix(int V1) {
-		this.V = V1;
-		this.E = 0;
-		this.matrix = new int[V][V];
-		for (int i = 0; i < V; i++) {
-			for (int j = 0; j < V; j++) {
+	GraphMatrix(int v1) {
+		this.vertices = v1;
+		this.edges = 0;
+		this.matrix = new int[vertices][vertices];
+		for (int i = 0; i < vertices; i++) {
+			for (int j = 0; j < vertices; j++) {
 				matrix[i][j] = 0;
 			}
 		}
@@ -166,7 +166,7 @@ class GraphMatrix implements Graph {
 	 * @return     { description_of_the_return_value }
 	 */
 	public int vertices() {
-		return this.V;
+		return this.vertices;
 	}
 	/**
 	 * number of edges.
@@ -174,7 +174,7 @@ class GraphMatrix implements Graph {
 	 * @return     { description_of_the_return_value }
 	 */
 	public int edges() {
-		return this.E;
+		return this.edges;
 	}
 	/**
 	 * Adds an edge.
@@ -184,7 +184,7 @@ class GraphMatrix implements Graph {
 	 */
 	public void addEdge(int v, int w) {
 		if (!hasEdge(v, w) && v != w) {
-			E++;
+			edges++;
 		}
 		matrix[v][w] = 1;
 		matrix[w][v] = 1;
@@ -207,12 +207,12 @@ class GraphMatrix implements Graph {
 	 */
 	public String toString() {
 		String s = "";
-		s += V + " vertices, " + E + " edges" + '\n';
-		if (E == 0) {
+		s += vertices + " vertices, " + edges + " edges" + '\n';
+		if (edges == 0) {
 			s += "No edges ";
 		} else {
-			for (int i = 0; i < V; i++) {
-				for (int j = 0; j < V; j++) {
+			for (int i = 0; i < vertices; i++) {
+				for (int j = 0; j < vertices; j++) {
 					s += matrix[i][j] + " ";
 				}
 				s = s.substring(0, s.length());
