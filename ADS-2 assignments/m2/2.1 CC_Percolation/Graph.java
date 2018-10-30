@@ -93,4 +93,14 @@ class Graph {
         }
         return false;
     }
+    /**
+     * degree.
+     *
+     * @param      v     { parameter_description }
+     *
+     * @return     { description_of_the_return_value }
+     */
+     public int degree(int v) {
+        return adj[v].size();
+    }
 }
