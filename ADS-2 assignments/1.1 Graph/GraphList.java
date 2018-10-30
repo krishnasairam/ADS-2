@@ -50,10 +50,9 @@ class GraphList implements Graph {
      * @param      w     { parameter_description }
      */
     public void addEdge(final int v, final int w) {
-        if (v == w) {
-            return;
+        if (!hasEdge(v, w) && v != w) {
+            edge++;
         }
-        edge++;
         adj[v].add(w);
         adj[w].add(v);
     }
@@ -138,7 +137,7 @@ class GraphMatrix implements Graph {
     /**
      * Constructs the object.
      *
-     * @param      V1    The v 1
+     * @param      v1    The v1.
      */
     GraphMatrix(final int v1) {
         this.vertices = v1;
