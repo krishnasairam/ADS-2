@@ -1,99 +1,178 @@
+import java.util.Iterator;
 import java.util.NoSuchElementException;
+/**
+ * Class for graph.
+ */
 public class Graph {
-    private final int V;
-    private int E;
-    private Bag<Integer>[] adj;
-
     /**
-     * Initializes an empty graph with {@code V} vertices and 0 edges.
-     * param V the number of vertices
-     *
-     * @param  V number of vertices
-     * @throws IllegalArgumentException if {@code V < 0}
+     *the variable to maintain vertex.
      */
-    public Graph(int V) {
-        if (V < 0) {
-            throw new IllegalArgumentException(
-                "Number of vertices must be nonnegative");
+    private final int vertices;
+    /**
+     *the variable to maintain edges.
+     */
+    private int edges;
+    /**
+     *the variable to adjacency matrix.
+     */
+    private boolean[][] adj;
+    /**
+     *the constructor to initialize.
+     *
+     * @param      vertices1  vertices
+     */
+    public Graph(final int vertices1) {
+        if (vertices1 < 0) {
+            throw new IllegalArgumentException("Too few vertices");
         }
-        this.V = V;
-        this.E = 0;
-        adj = (Bag<Integer>[]) new Bag[V];
-        for (int v = 0; v < V; v++) {
-            adj[v] = new Bag<Integer>();
+        this.vertices = vertices1;
+        this.edges = 0;
+        this.adj = new boolean[vertices1][vertices1];
+    }
+    /**
+     *
+     *the method to return vertices.
+     * @return vertices.
+     */
+    public int vertices() {
+        return vertices;
+    }
+    /**
+     *the method is to return edges.
+     *
+     * @return  edges.
+     */
+    public int edges() {
+     return edges;
+ }
+ /**
+  * adds an edge.
+  *
+  * @param      v  vertexOne
+  * @param      w  vertexTwo
+  */
+    public void addEdge(final int v, final int w) {
+        if (!adj[v][w]) {
+            edges++;
         }
+        adj[v][w] = true;
+        adj[w][v] = true;
+    }
+    /**
+     *the method returns whether there is.
+     *a connection between two vertices.
+     * @param      v     { parameter_description }
+     * @param      w     { parameter_description }
+     *
+     * @return connection is there are not.
+     */
+
+    /**
+     * checks if contains.
+     *
+     * @param      v     { parameter_description }
+     * @param      w     { parameter_description }
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public boolean contains(final int v, final int w) {
+        return adj[v][w];
     }
 
     /**
-     * Returns the number of vertices in this graph.
+     * return list of neighbors of v.
      *
-     * @return the number of vertices in this graph
+     * @param      v  vertex
+     *
+     * @return  iterator
      */
-    public int V() {
-        return V;
+    public Iterable<Integer> adj(final int v) {
+        return new AdjIterator(v);
     }
-
     /**
-     * Returns the number of edges in this graph.
-     *
-     * @return the number of edges in this graph
+     *support iteration over graph vertices.
      */
-    public int E() {
-        return E;
-    }
+    private class AdjIterator implements Iterator<Integer>,
+     Iterable<Integer> {
+        /**
+         * v.
+         */
+        private int v;
+        /**
+         * w.
+         */
+        private int w = 0;
 
-    // throw an IllegalArgumentException unless {@code 0 <= v < V}
-    private void validateVertex(int v) {
-        if (v < 0 || v >= V)
-            throw new IllegalArgumentException(
-                "vertex " + v + " is not between 0 and " + (V - 1));
-    }
+        /**
+         * Constructs the object.
+         *
+         * @param      v1    The v 1
+         */
+        AdjIterator(final int v1) {
+            this.v = v1;
+        }
 
-    /**
-     * Adds the undirected edge v-w to this graph.
-     *
-     * @param  v one vertex in the edge
-     * @param  w the other vertex in the edge
-     * @throws IllegalArgumentException unless both {@code 0 <= v < V} and {@code 0 <= w < V}
-     */
-    public void addEdge(int v, int w) {
-        validateVertex(v);
-        validateVertex(w);
-        E++;
-        adj[v].add(w);
-        adj[w].add(v);
-    }
+        /**
+         * iterator.
+         *
+         * @return     { description_of_the_return_value }
+         */
+        public Iterator<Integer> iterator() {
+            return this;
+        }
 
-
-    /**
-     * Returns the vertices adjacent to vertex {@code v}.
-     *
-     * @param  v the vertex
-     * @return the vertices adjacent to vertex {@code v}, as an iterable
-     * @throws IllegalArgumentException unless {@code 0 <= v < V}
-     */
-    public Iterable<Integer> adj(int v) {
-        validateVertex(v);
-        return adj[v];
-    }
-
-    /**
-     * Returns the degree of vertex {@code v}.
-     *
-     * @param  v the vertex
-     * @return the degree of vertex {@code v}
-     * @throws IllegalArgumentException unless {@code 0 <= v < V}
-     */
-    public int degree(int v) {
-        validateVertex(v);
-        return adj[v].size();
-    }
-    public boolean hasEdge(int v, int w) {
-        for (int each : adj[w]) {
-            if (each == v) {
-                return true;
+        /**
+         * Determines if it has next.
+         *
+         * @return     True if has next, False otherwise.
+         */
+        public boolean hasNext() {
+            while (w < vertices) {
+                if (adj[v][w]) {
+                    return true;
+                }
+                w++;
             }
+            return false;
         }
-        return false;
+
+        /**
+         * next.
+         *
+         * @return     { description_of_the_return_value }
+         */
+        public Integer next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            return w++;
+        }
+
+        /**
+         * remove.
+         */
+        public void remove()  {
+            throw new UnsupportedOperationException();
+        }
     }
+
+
+    /**
+     *string representation of Graph - takes quadratic time.
+     *
+     * @return     String representation of the object.
+     */
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        s.append(vertices + " " + edges + "\n");
+        for (int v = 0; v < vertices; v++) {
+            s.append(v + ": ");
+            for (int w : adj(v)) {
+                s.append(w + " ");
+            }
+            s.append("\n");
+        }
+        return s.toString();
+    }
+
 }

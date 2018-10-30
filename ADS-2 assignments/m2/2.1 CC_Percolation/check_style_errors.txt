@@ -34,32 +34,9 @@ Starting audit...
 Audit done.
 Checkstyle ends with 30 errors.
 Starting audit...
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:1:8: Unused import - java.util.NoSuchElementException. [UnusedImports]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:2: Missing a Javadoc comment. [JavadocType]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:3:5: Missing a Javadoc comment. [JavadocVariable]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:3:23: Name 'V' must match pattern '^[a-z][a-zA-Z0-9]*$'. [MemberName]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:4:5: Missing a Javadoc comment. [JavadocVariable]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:4:17: Name 'E' must match pattern '^[a-z][a-zA-Z0-9]*$'. [MemberName]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:5:5: Missing a Javadoc comment. [JavadocVariable]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:14:18: Parameter V should be final. [FinalParameters]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:14:22: 'V' hides a field. [HiddenField]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:14:22: Name 'V' must match pattern '^[a-z][a-zA-Z0-9]*$'. [ParameterName]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:32:16: Name 'V' must match pattern '^[a-z][a-zA-Z0-9]*$'. [MethodName]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:41:16: Name 'E' must match pattern '^[a-z][a-zA-Z0-9]*$'. [MethodName]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:46:5: Missing a Javadoc comment. [JavadocMethod]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:46:33: Parameter v should be final. [FinalParameters]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:47: 'if' construct must use '{}'s. [NeedBraces]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:57: Line is longer than 80 characters (found 93). [LineLength]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:59:25: Parameter v should be final. [FinalParameters]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:59:32: Parameter w should be final. [FinalParameters]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:75:34: Parameter v should be final. [FinalParameters]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:87:23: Parameter v should be final. [FinalParameters]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:91:5: Class 'Graph' looks like designed for extension (can be subclassed), but the method 'hasEdge' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'Graph' final or making the method 'hasEdge' static/final/abstract/empty, or adding allowed annotation for the method. [DesignForExtension]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:91:5: Missing a Javadoc comment. [JavadocMethod]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:91:28: Parameter v should be final. [FinalParameters]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:91:35: Parameter w should be final. [FinalParameters]
 Audit done.
-Checkstyle ends with 24 errors.
+Starting audit...
+Audit done.
 Starting audit...
 Audit done.
 Starting audit...
