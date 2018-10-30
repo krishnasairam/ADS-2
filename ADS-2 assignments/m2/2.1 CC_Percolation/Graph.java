@@ -156,14 +156,14 @@ public class Graph {
         }
     }
     /**
-         * Determines if it has edge.
-         *
-         * @param      v     { parameter_description }
-         * @param      w     { parameter_description }
-         *
-         * @return     True if has edge, False otherwise.
-         */
-    public boolean hasEdge(int v, int w) {
+     * Determines if it has edge.
+     *
+     * @param      v     { parameter_description }
+     * @param      w     { parameter_description }
+     *
+     * @return     True if has edge, False otherwise.
+     */
+    public boolean hasEdge(final int v, final int w) {
         return (adj[v][w]);
     }
     /**
