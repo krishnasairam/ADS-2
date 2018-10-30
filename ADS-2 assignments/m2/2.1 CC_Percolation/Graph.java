@@ -43,14 +43,14 @@ public class Graph {
      * @return  edges.
      */
     public int edges() {
-     return edges;
- }
- /**
-  * adds an edge.
-  *
-  * @param      v  vertexOne
-  * @param      w  vertexTwo
-  */
+        return edges;
+    }
+    /**
+     * adds an edge.
+     *
+     * @param      v  vertexOne
+     * @param      w  vertexTwo
+     */
     public void addEdge(final int v, final int w) {
         if (!adj[v][w]) {
             edges++;
@@ -93,7 +93,7 @@ public class Graph {
      *support iteration over graph vertices.
      */
     private class AdjIterator implements Iterator<Integer>,
-     Iterable<Integer> {
+        Iterable<Integer> {
         /**
          * v.
          */
@@ -155,8 +155,17 @@ public class Graph {
             throw new UnsupportedOperationException();
         }
     }
-
-
+    /**
+         * Determines if it has edge.
+         *
+         * @param      v     { parameter_description }
+         * @param      w     { parameter_description }
+         *
+         * @return     True if has edge, False otherwise.
+         */
+    public boolean hasEdge(int v, int w) {
+        return (adj[v][w]);
+    }
     /**
      *string representation of Graph - takes quadratic time.
      *

@@ -118,7 +118,7 @@ class Percolation {
      * @return     {Boolean value}
      */
     public boolean percolates() {
-        CC cc = new CC(uf);
+        ConnectedComponents cc = new ConnectedComponents(uf);
         return cc.connected(first, last);
     }
 }
