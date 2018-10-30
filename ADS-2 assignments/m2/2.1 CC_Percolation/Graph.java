@@ -19,12 +19,16 @@ class Graph {
      *
      * @param      v1    The v 1
      */
-    Graph(final int v1) {
-        this.vertices = v1;
+    public Graph(int V) {
+        if (V < 0) {
+            throw new IllegalArgumentException(
+                "Number of vertices must be nonnegative");
+        }
+        this.vertices = V;
         this.edge = 0;
-        this.adj = (Bag<Integer>[]) new Bag[vertices];
-        for (int i = 0; i < vertices; i++) {
-            adj[i] = new Bag<Integer>();
+        adj = (Bag<Integer>[]) new Bag[vertices];
+        for (int v = 0; v < vertices; v++) {
+            adj[v] = new Bag<Integer>();
         }
     }
     /**
@@ -50,11 +54,16 @@ class Graph {
      * @param      w     { parameter_description }
      */
     public void addEdge(final int v, final int w) {
-        if (!hasEdge(v, w) && v != w) {
-            edge++;
-        }
+        validateVertex(v);
+        validateVertex(w);
+        edge++;
         adj[v].add(w);
         adj[w].add(v);
+    }
+    private void validateVertex(int v) {
+        if (v < 0 || v >= vertices)
+            throw new IllegalArgumentException(
+                "vertex " + v + " is not between 0 and " + (vertices - 1));
     }
     /**
      * iterable.
@@ -64,6 +73,7 @@ class Graph {
      * @return     { description_of_the_return_value }
      */
     public Iterable<Integer> adj(final int v) {
+        validateVertex(v);
         return adj[v];
     }
     /**
@@ -75,21 +85,10 @@ class Graph {
      * @return     True if has edge, False otherwise.
      */
     public boolean hasEdge(final int v, final int w) {
-        int count = 0;
-        for (int i : adj[v]) {
-            if (i == w) {
-                count += 1;
-                break;
+        for (int each : adj[w]) {
+            if (each == v) {
+                return true;
             }
-        }
-        for (int i : adj[w]) {
-            if (i == v) {
-                count += 1;
-                break;
-            }
-        }
-        if (count == 2) {
-            return true;
         }
         return false;
     }
@@ -100,7 +99,7 @@ class Graph {
      *
      * @return     { description_of_the_return_value }
      */
-     public int degree(int v) {
+    public int degree(int v) {
         return adj[v].size();
     }
 }

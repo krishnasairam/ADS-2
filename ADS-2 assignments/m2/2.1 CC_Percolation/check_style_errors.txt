@@ -34,9 +34,17 @@ Starting audit...
 Audit done.
 Checkstyle ends with 30 errors.
 Starting audit...
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:103:24: Parameter v should be final. [FinalParameters]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:20:8: Unused @param tag for 'v1'. [JavadocMethod]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:22:5: Redundant 'public' modifier. [RedundantModifier]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:22:18: Parameter V should be final. [FinalParameters]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:22:22: Expected @param tag for 'V'. [JavadocMethod]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:22:22: Name 'V' must match pattern '^[a-z][a-zA-Z0-9]*$'. [ParameterName]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:63:5: Missing a Javadoc comment. [JavadocMethod]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:63:33: Parameter v should be final. [FinalParameters]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:64: 'if' construct must use '{}'s. [NeedBraces]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m2\2.1 CC_Percolation\Graph.java:102:23: Parameter v should be final. [FinalParameters]
 Audit done.
-Checkstyle ends with 1 errors.
+Checkstyle ends with 9 errors.
 Starting audit...
 Audit done.
 Starting audit...
