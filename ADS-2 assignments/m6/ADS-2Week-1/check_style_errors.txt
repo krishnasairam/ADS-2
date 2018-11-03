@@ -263,11 +263,7 @@ Starting audit...
 Audit done.
 Checkstyle ends with 34 errors.
 Starting audit...
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m6\ADS-2Week-1\Solution.java:0: File does not end with a newline. [NewlineAtEndOfFile]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m6\ADS-2Week-1\Solution.java:24:20: '1000' is a magic number. [MagicNumber]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m6\ADS-2Week-1\Solution.java:87: First sentence should end with a period. [JavadocStyle]
 Audit done.
-Checkstyle ends with 3 errors.
 Starting audit...
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m6\ADS-2Week-1\Stack.java:0: File does not end with a newline. [NewlineAtEndOfFile]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m6\ADS-2Week-1\Stack.java:13: Line has trailing spaces. [RegexpSingleline]

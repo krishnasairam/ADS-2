@@ -21,7 +21,8 @@ class PageRank {
      * @param      g     { parameter_description }
      */
     PageRank(final Digraph g) {
-        int temp = 1000;
+        final int tem = 1000;
+        int temp = tem;
         this.dg = g;
         this.v = dg.V();
         rank = new double[v];
@@ -85,7 +86,7 @@ public final class Solution {
 
     }
     /**
-     * { function_description }
+     * main class.
      *
      * @param      args  The arguments
      */
@@ -127,4 +128,5 @@ public final class Solution {
 
     }
 }
+
 
