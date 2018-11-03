@@ -36,13 +36,15 @@ class PageRank {
 				if (t == 0) {
 					rank[k] = 0;
 				}
+				double t1 = 0;
 				while (t > 0) {
 					int a = (int) c.dequeue();
 					if (dg.outdegree(a) != 0) {
-						rank[k] += (rank[a] / (double) dg.outdegree(a));
+						t1 += rank[a] / (double) dg.outdegree(a);
 					}
 					t--;
 				}
+				rank[k] = t1;
 			}
 			temp--;
 		}
