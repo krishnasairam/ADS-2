@@ -34,9 +34,9 @@ class PageRank {
             for (int k = 0; k < v; k++) {
                 Queue c = dg.Connected(k);
                 int t = c.size();
-                if (t == 0) {
+                /**if (t == 0) {
                     rank[k] = 0;
-                }
+                }*/
                 double t1 = 0;
                 while (t > 0) {
                     int a = (int) c.dequeue();
