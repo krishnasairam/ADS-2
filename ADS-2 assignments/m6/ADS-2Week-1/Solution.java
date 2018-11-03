@@ -29,7 +29,7 @@ class PageRank {
 			rank[i] = 1 / f;
 		}
 		int temp = v;
-		while (temp > 0) {
+		while (temp >= 0) {
 			for (int k = 0; k < v; k++) {
 				Queue c = dg.Connected(k);
 				int t = c.size();
@@ -39,9 +39,7 @@ class PageRank {
 				double t1 = 0;
 				while (t > 0) {
 					int a = (int) c.dequeue();
-					if (dg.outdegree(a) != 0) {
 						t1 += rank[a] / (double) dg.outdegree(a);
-					}
 					t--;
 				}
 				rank[k] = t1;
