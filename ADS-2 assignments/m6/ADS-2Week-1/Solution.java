@@ -10,7 +10,7 @@ class PageRank {
 	/**
 	 * integer array of ranks.
 	 */
-	private float[] rank;
+	private double[] rank;
 	/**
 	 * number of vertices.
 	 */
@@ -23,11 +23,10 @@ class PageRank {
 	PageRank(Digraph g) {
 		this.dg = g;
 		this.v = dg.V();
-		rank = new float[v];
-		float f = (float) v;
+		rank = new double[v];
+		double f = (double) v;
 		for (int i = 0; i < v; i++) {
 			rank[i] = 1 / f;
-			System.out.println(1/f);
 		}
 		int temp = v;
 		while (temp > 0) {
@@ -39,7 +38,9 @@ class PageRank {
 				}
 				while (t > 0) {
 					int a = (int) c.dequeue();
-					rank[k] += rank[a] / dg.outdegree(a);
+					if (dg.outdegree(a) != 0) {
+						rank[k] += (rank[a] / (double) dg.outdegree(a));
+					}
 					t--;
 				}
 			}
