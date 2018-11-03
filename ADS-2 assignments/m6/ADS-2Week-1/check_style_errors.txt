@@ -266,6 +266,7 @@ Starting audit...
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m6\ADS-2Week-1\Solution.java:0: File does not end with a newline. [NewlineAtEndOfFile]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m6\ADS-2Week-1\Solution.java:6:1: File contains tab characters (this is the first instance). [FileTabCharacter]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m6\ADS-2Week-1\Solution.java:23:18: Parameter g should be final. [FinalParameters]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m6\ADS-2Week-1\Solution.java:31:28: '1000' is a magic number. [MagicNumber]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m6\ADS-2Week-1\Solution.java:42: Line is longer than 80 characters (found 89). [LineLength]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m6\ADS-2Week-1\Solution.java:67:9: Missing a Javadoc comment. [JavadocMethod]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m6\ADS-2Week-1\Solution.java:67:19: Parameter p should be final. [FinalParameters]
@@ -279,7 +280,7 @@ Starting audit...
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m6\ADS-2Week-1\Solution.java:100: Line is longer than 80 characters (found 87). [LineLength]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m6\ADS-2Week-1\Solution.java:111: Line is longer than 80 characters (found 85). [LineLength]
 Audit done.
-Checkstyle ends with 15 errors.
+Checkstyle ends with 16 errors.
 Starting audit...
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m6\ADS-2Week-1\Stack.java:0: File does not end with a newline. [NewlineAtEndOfFile]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m6\ADS-2Week-1\Stack.java:13: Line has trailing spaces. [RegexpSingleline]

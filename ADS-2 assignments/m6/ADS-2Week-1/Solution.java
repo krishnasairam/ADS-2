@@ -28,8 +28,8 @@ class PageRank {
 		for (int i = 0; i < v; i++) {
 			rank[i] = 1 / f;
 		}
-		int temp = v;
-		while (temp + 1 >= 0) {
+		int temp = 1000;
+		while (temp >= 0) {
 			for (int k = 0; k < v; k++) {
 				Queue c = dg.Connected(k);
 				int t = c.size();
