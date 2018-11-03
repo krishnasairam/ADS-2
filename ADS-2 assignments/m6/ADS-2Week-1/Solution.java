@@ -47,6 +47,11 @@ class PageRank {
 			temp--;
 		}
 	}
+	/**
+	 * Returns a string representation of the object.
+	 *
+	 * @return     String representation of the object.
+	 */
 	public String toString() {
 		String s = "";
 		for (int b = 0; b < v; b++) {
@@ -63,7 +68,6 @@ class WebSearch {
 
 	}
 }
-
 /**
  * Class for solution.
  */
