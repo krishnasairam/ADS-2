@@ -1,69 +1,149 @@
-import java.util.*;
+import java.util.Hashtable;
+/**.
+ * { item_description }
+ */
+import java.io.File;
+/**.
+ * { item_description }
+ */
+
+import java.util.Scanner;
+/**.
+ * { item_description }
+ */
+import java.util.ArrayList;
+/**.
+ * Class for word net.
+ */
 public class WordNet {
-    Map<Integer, Bag<String>> synsetts;
-    Map<String, Bag<Integer>> ids;
-    Digraph g;
-    SAP sap;
-    // constructor takes the name of the two input files
-    public WordNet(String synsets, String hypernyms) throws Exception {
-        In inp = new In(synsets);
-
-        synsetts = new HashMap<Integer, Bag<String>>();
-        ids = new HashMap<String, Bag<Integer>>();
-
-        for (String line : inp.readAllLines()) {
-
-            String[] lines = line.split(",");
-            Integer id = Integer.parseInt(lines[0]);
-            String[] synset = lines[1].split(" ");
-
-            synsetts.putIfAbsent(id, new Bag<String>());
-            for (String word : synset) {
-                synsetts.get(id).add(word);
-                ids.putIfAbsent(word, new Bag<Integer>());
-                ids.get(word).add(id);
+    /**.
+     * { var_description }
+     */
+    private SAP sap;
+    /**.
+     * { var_description }
+     */
+    private Digraph dg;
+    /**.
+     * { item_description }
+     */
+    private Hashtable<String, ArrayList<Integer>> htable;
+    /**.
+     * { var_description }
+     */
+    private Hashtable<Integer, String> htable1;
+    /**.
+     * { var_description }
+     */
+    private int ver = 0;
+    /**.
+     * Constructs the object.
+     * @throws     Exception  { exception_description }
+     * @param      synsets    The synsets
+     * @param      hypernyms  The hypernyms
+     */
+    WordNet(final String synsets, final String hypernyms) throws Exception {
+        readSynsets(synsets);
+        readHypernyms(hypernyms);
+        // dg = new Digraph(ver);
+        // readHypernyms(hypernyms);
+        // sap = new SAP(dg);
+    }
+    /**.
+     * Reads synsets.
+     *
+     * @param      synsets    The synsets
+     *
+     * @throws     Exception  { exception_description }
+     */
+    public void readSynsets(final String synsets) throws Exception {
+        htable = new Hashtable<String, ArrayList<Integer>>();
+        htable1 = new Hashtable<Integer, String>();
+        int id = 0;
+            Scanner synIn = new Scanner(new File(synsets));
+            while (synIn.hasNextLine()) {
+                ver++;
+                // String line = synIn.readString();
+                String[] tokens = synIn.nextLine().split(",");
+                id = Integer.parseInt(tokens[0]);
+                htable1.put(id, tokens[1]);
+                String[] word = tokens[1].split(" ");
+                for (int i = 0; i < word.length; i++) {
+                    if (htable.contains(word[i])) {
+                        ArrayList<Integer> list = htable.get(word[i]);
+                        list.add(id);
+                        htable.put(word[i], list);
+                    } else {
+                        ArrayList<Integer> list = new ArrayList<Integer>();
+                        list.add(Integer.parseInt(tokens[0]));
+                        htable.put(word[i], list);
+                    }
+                }
+            }
+    }
+    /**.
+     * Reads hypernyms.
+     *
+     * @param      hypernyms  The hypernyms
+     *
+     * @throws     Exception  { exception_description }
+     */
+    public void readHypernyms(final String hypernyms) throws Exception {
+        dg = new Digraph(ver);
+        Scanner hyperIn = new Scanner(new File(hypernyms));
+        while (hyperIn.hasNextLine()) {
+            // String line = ;
+            String[] tokens = hyperIn.nextLine().split(",");
+            for (int i = 1; i < tokens.length; i++) {
+                dg.addEdge(Integer.parseInt(tokens[0]),
+                 Integer.parseInt(tokens[i]));
             }
         }
-
-        inp = new In(hypernyms);
-        g = new Digraph(synsetts.size());
-        for (String line : inp.readAllLines()) {
-            String[] lines = line.split(",");
-            for (int i = 1; i < lines.length; i++) g.addEdge(Integer.parseInt(lines[0]), Integer.parseInt(lines[i]));
+    }
+    /**.
+     * { function_description }
+     */
+    public void display() {
+        int c = 0;
+        DirectedCycle dc = new DirectedCycle(dg);
+        for (int i = 0; i < ver; i++) {
+            if (dg.outdegree(i) == 0) {
+                c++;
+            }
         }
-        sap = new SAP(g);
-        int cnt = 0;
-        for (int i = 0; i < g.V(); i++)
-            if (g.outdegree(i) == 0) cnt++;
-        if (cnt !=1 ) throw new Exception("Multiple roots");
-        DirectedCycle dc = new DirectedCycle(g);
-        if (dc.hasCycle()) throw new Exception("Cycle detected");
+        if (c > 1) {
+            System.out.println("Multiple roots");
+        } else if (dc.hasCycle()) {
+            System.out.println("Cycle detected");
+        } else {
+            System.out.println(dg);
+        }
     }
-
-    // returns all WordNet nouns
-    public Iterable<String> nouns() {
-        // sap = new SAP(g);
-        return ids.keySet();
+    /**.
+     * { function_description }
+     *
+     * @param      nounA  The noun a
+     * @param      nounB  The noun b
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public int distance(final String nounA, final String nounB) {
+        sap = new SAP(dg);
+        int dist = sap.length(htable.get(nounA), htable.get(nounB));
+        return dist;
     }
-
-    // is the word a WordNet noun?
-    public boolean isNoun(String word) {
-        return ids.containsKey(word);
+    /**.
+     * { function_description }
+     *
+     * @param      nounA  The noun a
+     * @param      nounB  The noun b
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public String sap(final String nounA, final String nounB) {
+        sap = new SAP(dg);
+        String str = "";
+        int id = sap.ancestor(htable.get(nounA), htable.get(nounB));
+        return htable1.get(id);
     }
-
-    // distance between nounA and nounB (defined below)
-    public int distance(String nounA, String nounB) { sap = new SAP(g); return sap.length(ids.get(nounA), ids.get(nounB));}
-
-    // a synset (second field of synsetts.txt) that is the common ancestor of nounA and nounB
-    // in a shortest ancestral path (defined below)
-    public String sap(String nounA, String nounB) {
-        sap = new SAP(g);
-        Integer id = sap.ancestor(ids.get(nounA), ids.get(nounB));
-        String ancestor = "";
-        for (String s : synsetts.get(id)) ancestor =  s + " " + ancestor;
-        return ancestor.trim();
-    }
-
-    // do unit testing of this class
-    // public static void main(String[] args)
 }
