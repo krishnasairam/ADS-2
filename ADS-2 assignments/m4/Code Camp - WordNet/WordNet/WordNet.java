@@ -1,4 +1,3 @@
-import java.util.Hashtable;
 /**.
  * { item_description }
  */
@@ -27,11 +26,11 @@ public class WordNet {
     /**.
      * { item_description }
      */
-    private Hashtable<String, ArrayList<Integer>> htable;
+    private HashTable<String, ArrayList<Integer>> htable;
     /**.
      * { var_description }
      */
-    private Hashtable<Integer, String> htable1;
+    private HashTable<Integer, String> htable1;
     /**.
      * { var_description }
      */
@@ -57,8 +56,8 @@ public class WordNet {
      * @throws     Exception  { exception_description }
      */
     public void readSynsets(final String synsets) throws Exception {
-        htable = new Hashtable<String, ArrayList<Integer>>();
-        htable1 = new Hashtable<Integer, String>();
+        htable = new HashTable<String, ArrayList<Integer>>();
+        htable1 = new HashTable<Integer, String>();
         int id = 0;
             Scanner synIn = new Scanner(new File(synsets));
             while (synIn.hasNextLine()) {
