@@ -30,19 +30,12 @@ Starting audit...
 Audit done.
 Checkstyle ends with 28 errors.
 Starting audit...
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m7\1. MST\Edge.java:0: File does not end with a newline. [NewlineAtEndOfFile]
 Audit done.
-Checkstyle ends with 1 errors.
 Starting audit...
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m7\1. MST\EdgeWeightedGraph.java:0: File does not end with a newline. [NewlineAtEndOfFile]
 Audit done.
-Checkstyle ends with 1 errors.
 Starting audit...
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m7\1. MST\LazyPrimMST.java:0: File does not end with a newline. [NewlineAtEndOfFile]
 Audit done.
-Checkstyle ends with 1 errors.
 Starting audit...
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m7\1. MST\MinPQ.java:0: File does not end with a newline. [NewlineAtEndOfFile]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m7\1. MST\MinPQ.java:11:5: Missing a Javadoc comment. [JavadocVariable]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m7\1. MST\MinPQ.java:12:5: Missing a Javadoc comment. [JavadocVariable]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m7\1. MST\MinPQ.java:13:5: Missing a Javadoc comment. [JavadocVariable]
@@ -127,7 +120,7 @@ Starting audit...
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m7\1. MST\MinPQ.java:242: 'if' construct must use '{}'s. [NeedBraces]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m7\1. MST\MinPQ.java:243: 'if' construct must use '{}'s. [NeedBraces]
 Audit done.
-Checkstyle ends with 84 errors.
+Checkstyle ends with 83 errors.
 Starting audit...
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m7\1. MST\Queue.java:5: Line has trailing spaces. [RegexpSingleline]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m7\1. MST\Queue.java:9: Line has trailing spaces. [RegexpSingleline]

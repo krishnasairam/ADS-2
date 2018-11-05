@@ -244,5 +244,4 @@ public class MinPQ<Key> implements Iterable<Key> {
         }
         StdOut.println("(" + pq.size() + " left on pq)");
     }
-
 }
