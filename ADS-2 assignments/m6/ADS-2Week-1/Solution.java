@@ -21,25 +21,25 @@ class PageRank {
      * @param      g     { parameter_description }
      */
     PageRank(final Digraph g) {
-        final int tem = 104;
+        final int tem = 1000;
         int temp = tem;
         this.dg = g;
         this.v = dg.V();
         rank = new double[v];
         double f = (double) v;
         for (int i = 0; i < v; i++) {
-            rank[i] = 1 / f;
+            rank[i] = 1.0 / f;
         }
         while (temp > 0) {
             for (int k = 0; k < v; k++) {
                 Queue c = dg.Connected(k);
                 int t = c.size();
                 if (t == 0) {
-                    rank[k] = 0;
+                    rank[k] = 0.0;
                 }
                 double t1 = 0;
                 while (t > 0) {
-                    int a = (int) c.dequeue();
+                int a = (int) c.dequeue();
                 t1 += rank[a] / (double) dg.outdegree(a);
                     t--;
                 }
