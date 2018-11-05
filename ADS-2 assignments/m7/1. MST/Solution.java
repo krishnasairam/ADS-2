@@ -29,6 +29,6 @@ public final class Solution {
             edges--;
         }
         LazyPrimMST l = new LazyPrimMST(eg);
-        System.out.println(l.weight());
+        System.out.printf("%.5f\n", l.weight());
     }
 }
