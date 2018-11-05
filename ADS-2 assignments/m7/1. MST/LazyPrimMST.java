@@ -5,7 +5,7 @@ public class LazyPrimMST {
     /**
      * {total weight of MST}.
      */
-    private double weight;
+    private float weight;
     /**
      * {edges in the MST}.
      */
