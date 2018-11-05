@@ -2,8 +2,6 @@ import java.util.Scanner;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
-// import java.math.BigDecimal;
-// import java.math.MathContext;
 import java.io.File;
 import java.io.IOException;
 /**
@@ -35,8 +33,6 @@ class PageRank {
     // pr = new BigDecimal[graph1.vertices()];
     pr = new double[graph1.vertices()];
     for (int i = 0; i < graph.vertices(); i++) {
-      // int temp = graph.vertices();
-      // pr[i] = BigDecimal.valueOf(1.0 / graph.vertices());
       pr[i] = 1.0 / graph.vertices();
     }
     for (int i = 0; i < graph.vertices(); i++) {
@@ -48,8 +44,6 @@ class PageRank {
         }
       }
     }
-    // System.out.println(Arrays.toString(pr));
-    // System.out.println(graph.vertices());
     incomVr = getAdjRev();
     getPR();
   }
@@ -67,12 +61,9 @@ class PageRank {
     for (int v = 0; v < graph.vertices(); v++) {
       adjRev[v] = new ArrayList<Integer>();
     }
-
-    // System.out.println(Arrays.toString(adjRev));
     Bag<Integer>[] adjGr = graph.getAdj();
     for (int i = 0; i < graph.vertices(); i++) {
       for (Integer num : adjGr[i]) {
-        // System.out.println(num);
         adjRev[num].add(i);
       }
     }
@@ -96,9 +87,7 @@ class PageRank {
         }
 
       }
-      // System.out.println(it);
       if (Arrays.equals(pr, tempPR)) {
-        // System.out.println(it);
         break;
       }
       pr = tempPR.clone();
