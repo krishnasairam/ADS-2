@@ -40,7 +40,7 @@ class PageRank {
                 double t1 = 0;
                 while (t > 0) {
                 int a = (int) c.dequeue();
-                t1 += rank[a] / (double) dg.outdegree(a);
+                t1 += (double) rank[a] / (dg.outdegree(a) * 1.0);
                     t--;
                 }
                 rank[k] = t1;
