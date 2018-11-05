@@ -21,7 +21,7 @@ class PageRank {
      * @param      g     { parameter_description }
      */
     PageRank(final Digraph g) {
-        final int tem = 1000;
+        final int tem = 999;
         int temp = tem;
         this.dg = g;
         this.v = dg.V();
