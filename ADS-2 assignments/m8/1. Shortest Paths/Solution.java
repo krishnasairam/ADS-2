@@ -37,11 +37,9 @@ public final class Solution {
     EdgeWeightedDigraph eg = new EdgeWeightedDigraph(vertices);
     while (edges > 0) {
       String[] token = scan.nextLine().split(" ");
-      // String a = token[0];
-      // String b = token[1];
       int first = sol.getIndex(token[0]);
       int second = sol.getIndex(token[1]);
-      double weight = Double.parseDouble(token[2]);
+      int weight = Integer.parseInt(token[2]);
       DirectedEdge e = new DirectedEdge(first, second, weight);
       eg.addEdge(e);
       edges--;
