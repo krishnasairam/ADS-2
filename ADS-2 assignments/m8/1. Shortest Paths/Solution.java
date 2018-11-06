@@ -3,7 +3,7 @@ import java.util.Scanner;
  * Class for solution.
  */
 public final class Solution {
-  String[] tokens;
+  String[] root;
   /**
    * Constructs the object.
    */
@@ -13,8 +13,8 @@ public final class Solution {
 
   private int getIndex(String str) {
     int index = 0;
-    for (int i = 0; i < tokens.length; i++) {
-      if (str == tokens[i]) {
+    for (int i = 0; i < root.length; i++) {
+      if (str == root[i]) {
         index = i;
       }
     }
@@ -33,7 +33,10 @@ public final class Solution {
     int vertices = scan.nextInt();
     int edges = scan.nextInt();
     scan.nextLine();
-    sol.tokens = scan.nextLine().split(" ");
+    String[] tokens = scan.nextLine().split(" ");
+    for(int j = 0; j<tokens.length; j++){
+      sol.root[j] = tokens[j];
+    }
     EdgeWeightedDigraph eg = new EdgeWeightedDigraph(vertices);
     while (edges > 0) {
       String[] token = scan.nextLine().split(" ");
@@ -42,14 +45,15 @@ public final class Solution {
       int weight = Integer.parseInt(token[2]);
       DirectedEdge e = new DirectedEdge(first, second, weight);
       eg.addEdge(e);
+      System.out.println(eg);
       edges--;
     }
     int i = Integer.parseInt(scan.nextLine());
     while (i > 0) {
-      String[] tokens = scan.nextLine().split(" ");
-      int home = sol.getIndex(tokens[0]);
+      String[] tokens1 = scan.nextLine().split(" ");
+      int home = sol.getIndex(tokens1[0]);
       DijkstraSP l = new DijkstraSP(eg, home);
-      int destination = sol.getIndex(tokens[1]);
+      int destination = sol.getIndex(tokens1[1]);
       System.out.printf("%f\n", l.distTo(destination));
       i--;
     }
