@@ -38,9 +38,9 @@ public class SeamCarver {
 		this.picture = picture;
 		this.width = picture.width();
 		this.height = picture.height();
-		this.energy = new double[width][height];
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < height ; j++) {
+		this.energy = new double[height][width];
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width ; j++) {
 				if (i == 0 || j == 0 || i == width - 1 || j == height - 1) {
 					energy[i][j] = 1000.0;
 				} else {

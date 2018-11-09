@@ -234,7 +234,7 @@ Starting audit...
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m10\Seam Carving\SeamCarver.java:31:5: Missing a Javadoc comment. [JavadocVariable]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m10\Seam Carving\SeamCarver.java:37:27: Parameter picture should be final. [FinalParameters]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m10\Seam Carving\SeamCarver.java:37:35: 'picture' hides a field. [HiddenField]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m10\Seam Carving\SeamCarver.java:43:51: ';' is preceded with whitespace. [NoWhitespaceBefore]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m10\Seam Carving\SeamCarver.java:43:50: ';' is preceded with whitespace. [NoWhitespaceBefore]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m10\Seam Carving\SeamCarver.java:44: Line is longer than 80 characters (found 92). [LineLength]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m10\Seam Carving\SeamCarver.java:45:56: '1000.0' is a magic number. [MagicNumber]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m10\Seam Carving\SeamCarver.java:52:9: Class 'SeamCarver' looks like designed for extension (can be subclassed), but the method 'gradient' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'SeamCarver' final or making the method 'gradient' static/final/abstract/empty, or adding allowed annotation for the method. [DesignForExtension]
