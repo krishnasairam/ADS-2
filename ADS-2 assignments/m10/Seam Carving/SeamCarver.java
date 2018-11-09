@@ -38,9 +38,9 @@ public class SeamCarver {
 		this.picture = picture;
 		this.width = picture.width();
 		this.height = picture.height();
-		this.energy = new double[height][width];
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width ; j++) {
+		this.energy = new double[width][height];
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height ; j++) {
 				if (i == 0 || j == 0 || i == width - 1 || j == height - 1) {
 					energy[i][j] = 1000.0;
 				} else {
@@ -93,10 +93,6 @@ public class SeamCarver {
 	}
 	// sequence of indices for horizontal seam
 	public int[] findHorizontalSeam() {
-		return new int[0];
-	}
-	// sequence of indices for vertical seam
-	public int[] findVerticalSeam() {
 		transposed = false;
         distToSink = Double.POSITIVE_INFINITY;
         edgeToSink = Integer.MAX_VALUE;
@@ -118,18 +114,18 @@ public class SeamCarver {
         // The topological order is the reverse of the DFS post-order,
         // which visits the left-most adjacent pixel first, before it visits
         // pixels to the right.
-        for (int top = width() - 1; top >= 0; top--) {
+        for (int top = height() - 1; top >= 0; top--) {
             for (int depth = 0;
-                    depth + top < width() && depth < height();
+                    depth + top < height() && depth < width();
                     depth++) {
                 visit(depth, depth + top);
             }
         }
         // Visit all pixels from the left side, diagonally to the right,
         // in keeping with the topological order described above.
-        for (int depth = 1; depth < height(); depth++) {
+        for (int depth = 1; depth < width(); depth++) {
             for (int out = 0;
-                    out < width() && depth + out < height();
+                    out < height() && depth + out < width();
                     out++) {
                 visit(depth + out, out);
             }
@@ -137,9 +133,9 @@ public class SeamCarver {
 
         // Populate seam[] with the shortest path
         int[] seam = new int[height()];
-        seam[height() - 1] = edgeToSink;
+        seam[width() - 1] = edgeToSink;
 
-        for (int i = height() - 1; i > 0; i--) {
+        for (int i = width() - 1; i > 0; i--) {
             seam[i - 1] = edgeTo[i][seam[i]];
         }
 
@@ -149,6 +145,10 @@ public class SeamCarver {
 
         return seam;
     }
+	// sequence of indices for vertical seam
+	public int[] findVerticalSeam() {
+		return new int[0];
+	}
 	// remove horizontal seam from current picture
 	public void removeHorizontalSeam(int[] seam) {
 
@@ -161,12 +161,12 @@ public class SeamCarver {
 	private void visit(int i, int j) {
         if (transposed) {
             // Only relax the sink
-            if (j == width() - 1) {
+            if (j == height() - 1) {
                 relax(i, j);
             }
 
             // Bottom edge; relax to the right and above
-            else if (i == height() - 1) {
+            else if (i == width() - 1) {
                 relax(i, j, i, j + 1);
                 relax(i, j, i - 1, j + 1);
             }
@@ -187,12 +187,12 @@ public class SeamCarver {
 
         else {
             // Only relax the sink
-            if (i == height() - 1) {
+            if (i == width() - 1) {
                 relax(i, j);
             }
 
             // Right edge; relax below and to the left
-            else if (j == width() - 1) {
+            else if (j == height() - 1) {
                 relax(i, j, i + 1, j - 1);
                 relax(i, j, i + 1, j);
             }
