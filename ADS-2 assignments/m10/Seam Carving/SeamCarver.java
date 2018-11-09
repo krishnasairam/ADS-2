@@ -93,6 +93,10 @@ public class SeamCarver {
 	}
 	// sequence of indices for horizontal seam
 	public int[] findHorizontalSeam() {
+		return new int[0];
+	}
+	// sequence of indices for vertical seam
+	public int[] findVerticalSeam() {
 		transposed = false;
         distToSink = Double.POSITIVE_INFINITY;
         edgeToSink = Integer.MAX_VALUE;
@@ -145,10 +149,6 @@ public class SeamCarver {
 
         return seam;
     }
-	// sequence of indices for vertical seam
-	public int[] findVerticalSeam() {
-		return new int[0];
-	}
 	// remove horizontal seam from current picture
 	public void removeHorizontalSeam(int[] seam) {
 
