@@ -118,28 +118,28 @@ public class SeamCarver {
         // The topological order is the reverse of the DFS post-order,
         // which visits the left-most adjacent pixel first, before it visits
         // pixels to the right.
-        for (int top = height() - 1; top >= 0; top--) {
+        for (int top = width() - 1; top >= 0; top--) {
             for (int depth = 0;
-                    depth + top < height() && depth < width();
+                    depth + top < width() && depth < height();
                     depth++) {
                 visit(depth, depth + top);
             }
         }
         // Visit all pixels from the left side, diagonally to the right,
-        // in keeping with the topological order described above.
-        for (int depth = 1; depth < width(); depth++) {
+        // in keeping widthth the topological order described above.
+        for (int depth = 1; depth < height(); depth++) {
             for (int out = 0;
-                    out < height() && depth + out < width();
+                    out < width() && depth + out < height();
                     out++) {
                 visit(depth + out, out);
             }
         }
 
-        // Populate seam[] with the shortest path
-        int[] seam = new int[height()];
-        seam[width() - 1] = edgeToSink;
+        // Populate seam[] widthth the shortest path
+        int[] seam = new int[width()];
+        seam[height() - 1] = edgeToSink;
 
-        for (int i = width() - 1; i > 0; i--) {
+        for (int i = height() - 1; i > 0; i--) {
             seam[i - 1] = edgeTo[i][seam[i]];
         }
 
@@ -161,12 +161,12 @@ public class SeamCarver {
 	private void visit(int i, int j) {
         if (transposed) {
             // Only relax the sink
-            if (j == height() - 1) {
+            if (j == width() - 1) {
                 relax(i, j);
             }
 
             // Bottom edge; relax to the right and above
-            else if (i == width() - 1) {
+            else if (i == height() - 1) {
                 relax(i, j, i, j + 1);
                 relax(i, j, i - 1, j + 1);
             }
@@ -187,12 +187,12 @@ public class SeamCarver {
 
         else {
             // Only relax the sink
-            if (i == width() - 1) {
+            if (i == height() - 1) {
                 relax(i, j);
             }
 
             // Right edge; relax below and to the left
-            else if (j == height() - 1) {
+            else if (j == width() - 1) {
                 relax(i, j, i + 1, j - 1);
                 relax(i, j, i + 1, j);
             }
