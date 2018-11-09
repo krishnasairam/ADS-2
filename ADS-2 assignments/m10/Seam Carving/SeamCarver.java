@@ -100,8 +100,8 @@ public class SeamCarver {
 		transposed = false;
         distToSink = Double.POSITIVE_INFINITY;
         edgeToSink = Integer.MAX_VALUE;
-        distTo = new double[height][width];
-        edgeTo = new int[height][width];
+        distTo = new double[width][height];
+        edgeTo = new int[width][height];
         for (double[] r: distTo) {
         	Arrays.fill(r, Double.POSITIVE_INFINITY);
         }
