@@ -64,10 +64,18 @@ public class Solution {
 			Shortestpath sp2 = new Shortestpath(eg, Integer.parseInt(place[1]));
 			double r1 = sp1.distTo(Integer.parseInt(place[1]));
 			double r2 = sp2.distTo(Integer.parseInt(place[2]));
+			String str = "";
 			if (r1 == Double.POSITIVE_INFINITY || r2 == Double.POSITIVE_INFINITY) {
 				System.out.println("No Path Found.");
 			} else {
 				System.out.println(r1 + r2);
+				for (Edge e1 : sp1.pathTo(Integer.parseInt(place[1]))) {
+					str += e1.either() + " ";
+				}
+				for (Edge e2 : sp2.pathTo(Integer.parseInt(place[2]))) {
+					str += e2.either() + " ";
+				}
+				System.out.println(str);
 			}
 			break;
 
