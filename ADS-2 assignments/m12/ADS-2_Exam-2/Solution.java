@@ -22,13 +22,13 @@ public class Solution {
 		int vertices = Integer.parseInt(scan.nextLine());
 		int edges = Integer.parseInt(scan.nextLine());
 		int s = edges;
-		EdgeWeightedDigraph eg = new EdgeWeightedDigraph(vertices);
+		EdgeWeightedGraph eg = new EdgeWeightedGraph(vertices);
 		while (s > 0) {
 			String[] values = scan.nextLine().split(" ");
 			int v1 = Integer.parseInt(values[0]);
 			int v2 = Integer.parseInt(values[1]);
 			int distance = Integer.parseInt(values[2]);
-			DirectedEdge e = new DirectedEdge(v1, v2, distance);
+			Edge e = new Edge(v1, v2, distance);
             eg.addEdge(e);
 			s--;
 		}
@@ -44,7 +44,7 @@ public class Solution {
 			// If the path exists print the distance between them.
 			// Other wise print "No Path Found."
 			String[] places = scan.nextLine().split(" ");
-			DijkstraSP sp = new DijkstraSP(eg, Integer.parseInt(places[0]));
+			Shortestpath sp = new Shortestpath(eg, Integer.parseInt(places[0]));
 			System.out.printf("%d\n", (int) sp.distTo(Integer.parseInt(places[1])));
 			break;
 
