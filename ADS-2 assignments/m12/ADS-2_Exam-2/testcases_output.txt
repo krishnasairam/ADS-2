@@ -51,14 +51,7 @@ Expected Output:
 No Path Found.
 
 Your Output: 
-Exception in thread "main" java.util.IllegalFormatConversionException: d != java.lang.Float
-	at java.base/java.util.Formatter$FormatSpecifier.failConversion(Unknown Source)
-	at java.base/java.util.Formatter$FormatSpecifier.printInteger(Unknown Source)
-	at java.base/java.util.Formatter$FormatSpecifier.print(Unknown Source)
-	at java.base/java.util.Formatter.format(Unknown Source)
-	at java.base/java.io.PrintStream.format(Unknown Source)
-	at java.base/java.io.PrintStream.printf(Unknown Source)
-	at Solution.main(Solution.java:48)
+2147483647
 ----------------------------------------
 
 ########## Testcase 3: Failed ##########
@@ -66,14 +59,7 @@ Expected Output:
 370.0
 
 Your Output: 
-Exception in thread "main" java.util.IllegalFormatConversionException: d != java.lang.Float
-	at java.base/java.util.Formatter$FormatSpecifier.failConversion(Unknown Source)
-	at java.base/java.util.Formatter$FormatSpecifier.printInteger(Unknown Source)
-	at java.base/java.util.Formatter$FormatSpecifier.print(Unknown Source)
-	at java.base/java.util.Formatter.format(Unknown Source)
-	at java.base/java.io.PrintStream.format(Unknown Source)
-	at java.base/java.io.PrintStream.printf(Unknown Source)
-	at Solution.main(Solution.java:48)
+370
 ----------------------------------------
 
 ########## Testcase 4: Failed ##########

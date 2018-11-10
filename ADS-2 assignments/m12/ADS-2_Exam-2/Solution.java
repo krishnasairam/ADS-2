@@ -45,7 +45,7 @@ public class Solution {
 			// Other wise print "No Path Found."
 			String[] places = scan.nextLine().split(" ");
 			Shortestpath sp = new Shortestpath(eg, Integer.parseInt(places[0]));
-			System.out.printf("%d\n", (float) sp.distTo(Integer.parseInt(places[1])));
+			System.out.printf("%d\n", (int) sp.distTo(Integer.parseInt(places[1])));
 			break;
 
 		case "ViaPaths":
