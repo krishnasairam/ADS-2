@@ -29,7 +29,7 @@ public class Solution {
 			int v2 = Integer.parseInt(values[1]);
 			int distance = Integer.parseInt(values[2]);
 			Edge e = new Edge(v1, v2, distance);
-            eg.addEdge(e);
+			eg.addEdge(e);
 			s--;
 		}
 		String caseToGo = scan.nextLine();
@@ -45,7 +45,12 @@ public class Solution {
 			// Other wise print "No Path Found."
 			String[] places = scan.nextLine().split(" ");
 			Shortestpath sp = new Shortestpath(eg, Integer.parseInt(places[0]));
-			System.out.println(sp.distTo(Integer.parseInt(places[1])));
+			double result = sp.distTo(Integer.parseInt(places[1]));
+			if (result == Double.POSITIVE_INFINITY) {
+				System.out.println("No Path Found.");
+			} else {
+				System.out.println(result);
+			}
 			break;
 
 		case "ViaPaths":
