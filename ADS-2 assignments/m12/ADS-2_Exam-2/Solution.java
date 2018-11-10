@@ -74,7 +74,8 @@ public class Solution {
 				}
 				str += "/";
 				for (Edge e2 : sp2.pathTo(Integer.parseInt(place[2]))) {
-					str += e2.either() + " ";
+					int temp = e2.either();
+					str += e2.other(temp) + " ";
 				}
 				System.out.println(str);
 			}
