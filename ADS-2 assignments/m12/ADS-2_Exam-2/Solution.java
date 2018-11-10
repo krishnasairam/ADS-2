@@ -76,6 +76,7 @@ public class Solution {
 					int temp = e2.either();
 					str += e2.other(temp) + " ";
 				}
+				str += "/";
 				System.out.println(str);
 			}
 			break;
