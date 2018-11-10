@@ -72,6 +72,7 @@ public class Solution {
 				for (Edge e1 : sp1.pathTo(Integer.parseInt(place[1]))) {
 					str += e1.either() + " ";
 				}
+				str += "/";
 				for (Edge e2 : sp2.pathTo(Integer.parseInt(place[2]))) {
 					str += e2.either() + " ";
 				}
