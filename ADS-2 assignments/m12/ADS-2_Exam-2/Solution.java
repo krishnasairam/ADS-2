@@ -26,8 +26,8 @@ public class Solution {
 		while (s > 0) {
 			String[] values = scan.nextLine().split(" ");
 			int v1 = Integer.parseInt(values[0]);
-			int v2 = Integer.parseInt(values[0]);
-			int distance = Integer.parseInt(values[0]);
+			int v2 = Integer.parseInt(values[1]);
+			int distance = Integer.parseInt(values[2]);
 			DirectedEdge e = new DirectedEdge(v1, v2, distance);
             eg.addEdge(e);
 			s--;
