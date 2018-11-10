@@ -164,7 +164,10 @@ Starting audit...
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m12\ADS-2_Exam-2\Solution.java:47: Line is longer than 80 characters (found 92). [LineLength]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m12\ADS-2_Exam-2\Solution.java:57: Line is longer than 80 characters (found 87). [LineLength]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m12\ADS-2_Exam-2\Solution.java:58: Line is longer than 80 characters (found 110). [LineLength]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m12\ADS-2_Exam-2\Solution.java:63: Line is longer than 80 characters (found 92). [LineLength]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m12\ADS-2_Exam-2\Solution.java:64: Line is longer than 80 characters (found 92). [LineLength]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m12\ADS-2_Exam-2\Solution.java:67: Line is longer than 80 characters (found 95). [LineLength]
 Audit done.
-Checkstyle ends with 7 errors.
+Checkstyle ends with 10 errors.
 Starting audit...
 Audit done.

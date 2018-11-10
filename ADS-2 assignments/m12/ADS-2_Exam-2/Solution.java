@@ -59,6 +59,16 @@ public class Solution {
 			// third is the destination.
 			// If the path exists print the distance between them.
 			// Other wise print "No Path Found."
+			String[] place = scan.nextLine().split(" ");
+			Shortestpath sp1 = new Shortestpath(eg, Integer.parseInt(place[0]));
+			Shortestpath sp2 = new Shortestpath(eg, Integer.parseInt(place[1]));
+			double r1 = sp1.distTo(Integer.parseInt(place[1]));
+			double r2 = sp2.distTo(Integer.parseInt(place[2]));
+			if (r1 == Double.POSITIVE_INFINITY || r2 == Double.POSITIVE_INFINITY) {
+				System.out.println("No Path Found.");
+			} else {
+				System.out.println(r1 + r2);
+			}
 			break;
 
 		default:
