@@ -64,7 +64,7 @@ public class Solution {
 			Shortestpath sp2 = new Shortestpath(eg, Integer.parseInt(place[1]));
 			double r1 = sp1.distTo(Integer.parseInt(place[1]));
 			double r2 = sp2.distTo(Integer.parseInt(place[2]));
-			String str = "";
+			String str = place[0] + " ";
 			if (r1 == Double.POSITIVE_INFINITY || r2 == Double.POSITIVE_INFINITY) {
 				System.out.println("No Path Found.");
 			} else {
