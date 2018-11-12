@@ -1,244 +1,240 @@
 import java.awt.Color;
 import java.lang.Math;
-import java.util.Arrays;
+/**
+ * Class for seam carver.
+ */
 public class SeamCarver {
+  /**
+   *the picture object.
+   */
+  private Picture picture;
+  /**
+   *the width of image.
+   */
+  private int width;
+  /**
+   *the height of pixel.
+   */
+  private int height;
+  /**
+   *the constructor to initialize.
+   *
+   * @param      pic   The picture
+   */
+  public SeamCarver(final Picture pic) throws Exception {
+    if (pic == null) {
+      throw new Exception("picture is null");
+    }
+    this.picture = pic;
+    width = picture.width();
+    height = picture.height();
+  }
+  /**
+   *the method will return the picture.
+   *object.
+   * @return picture object.
+   */
+  public Picture picture() {
+    return picture;
+  }
+  /**
+   *this method will return the width.
+   *of image.
+   * @return width of pixel
+   */
+  public int width() {
+    return width;
+  }
+  /**
+   *height of current picture
+   *
+   * @return height of image.
+   */
+  public int height() {
+    return height;
+  }
+  /**
+   *energy of pixel at column x and row y
+   *
+   * @param      x  x coordinate
+   * @param      y   y coordinate
+   *
+   * @return energy of pixel.
+   */
+  public double energy(int x, int y) {
+    //handle exceptions
+    if (x == 0 || y == 0 || y == (height - 1) || x == (width - 1)) {
+      return 1000.0;
+    }
+    double xCoordinate = 0.0;
+    double yCoordinate = 0.0;
+    Color object = picture.get(x, y);
+    Color leftObj = picture.get(x, y - 1);
+    Color rightObj = picture.get(x, y + 1);
+    double xRed = Math.abs((leftObj.getRed() - rightObj.getRed()));
+    double xGreen = Math.abs((leftObj.getGreen() - rightObj.getGreen()));
+    double xBlue = Math.abs((leftObj.getBlue() - rightObj.getBlue()));
+    xCoordinate = Math.pow(xRed, 2) + Math.pow(xBlue, 2) + Math.pow(xGreen, 2);
+    Color topObj = picture.get(x - 1, y);
+    Color bottomObj = picture.get(x + 1, y);
+    double yRed = Math.abs((topObj.getRed() - bottomObj.getRed()));
+    double yGreen = Math.abs((topObj.getGreen() - bottomObj.getGreen()));
+    double yBlue = Math.abs((topObj.getBlue() - bottomObj.getBlue()));
+    yCoordinate = Math.pow(yRed, 2) + Math.pow(yBlue, 2) + Math.pow(yGreen, 2);
+    double sum = Math.sqrt((xCoordinate + yCoordinate));
+    return sum;
+  }
+  /**sequence of indices for horizontal seam
+   *
+   *time complexity is O(w*h)
+   *w is the width and h is the height
+   * @return  sequence of indices of horizontal seam
+   */
+  public int[] findHorizontalSeam() {
+    int[][] edgeTo = new int[height][width];
+    double[][] distTo = new double[height][width];
+    reset(distTo);
+    for (int row = 0; row < height; row++) {
+      distTo[row][0] = 1000;
+    }
+    // this is for relaxation.
+    for (int col = 0; col < width - 1; col++) {
+      for (int row = 0; row < height; row++) {
+        relaxH(row, col, edgeTo, distTo);
+      }
+    }
+    double minDist = Double.MAX_VALUE;
+    int minRow = 0;
+    for (int row = 0; row < height; row++) {
+      if (minDist > distTo[row][width - 1]) {
+        minDist = distTo[row][width - 1];
+        minRow = row;
+      }
+    }
+    int[] indices = new int[width];
+    //to find the horizontal seam.
+    for (int col = width - 1, row = minRow; col >= 0; col--) {
+      indices[col] = row;
+      row -= edgeTo[row][col];
+    }
+    return indices;
+  }
+  private void relaxH(int row, int col, int[][] edgeTo, double[][] distTo) {
+    int nextCol = col + 1;
+    for (int i = -1; i <= 1; i++) {
+      int nextRow = row + i;
+      if (nextRow < 0 || nextRow >= height) continue;
+      if (i == 0) {
+        if (distTo[nextRow][nextCol] >= distTo[row][col]  + energy(nextCol, nextRow)) {
+          distTo[nextRow][nextCol] = distTo[row][col]  + energy(nextCol, nextRow);
+          edgeTo[nextRow][nextCol] = i;
+        }
+      }
+      if (distTo[nextRow][nextCol] > distTo[row][col]  + energy(nextCol, nextRow)) {
+        distTo[nextRow][nextCol] = distTo[row][col]  + energy(nextCol, nextRow);
+        edgeTo[nextRow][nextCol] = i;
+      }
+    }
+  }
+  /**
+   *this method is to find the vertical seam.
+   *first of all find the shortest path from top to.
+   *bottom.
+   *time complexity is O(w*h)
+   *w is the width and h is the height
+   * @return sequence of indices for vertical seam.
+   */
+  public int[] findVerticalSeam() {
+    double[][] energy = new double[height][width];
+    int[][] edgeTo = new int[height][width];
+    double[][] distTo = new double[height][width];
+    reset(distTo);
+    int[] indices = new int[height];
+    if (width == 1 || height == 1) {
+      return indices;
+    }
+    for (int i = 0; i < width; i++) {
+      distTo[0][i] = 1000.0;
+    }
+    // this is for relaxation.
+    for (int i = 0; i < height - 1; i++) {
+      for (int j = 0; j < width; j++) {
+        relaxV(i, j, edgeTo, distTo);
+      }
+    }
+    // calculating from last row
+    // column wise
+    double minDist = Double.MAX_VALUE;
+    int minCol = 0;
+    for (int col = 0; col < width; col++) {
+      if (minDist > distTo[height - 1][col]) {
+        minDist = distTo[height - 1][col];
+        minCol = col;
+      }
+    }
+    //indices values of shortest path.
+    for (int row = height - 1, col = minCol; row >= 0; row--) {
+      indices[row] = col;
+      col -= edgeTo[row][col];
+    }
+    indices[0] = indices[1];
+    return indices;
+  }
+  /**
+   *time complexity is O(W * H)
+   *W is the width of image
+   *H is the height of image
+   * @param      distTo  The distance to
+   */
+  private void reset(double[][] distTo) {
     /**
-     * picture.
+     *reset all the values to maxvalue.
      */
-    private Picture picture;
-    /**
-     * width.
-     */
-    private int width;
-    /**
-     * height.
-     */
-    private int height;
-    /**
-     * energy 2d array.
-     */
-    private double energy[][];
-    /**
-     * distTO
-     */
-    private double[][] distTo;
-    /**
-     * distToSink.
-     */
-    private double distToSink;
-    private int[][] edgeTo;
-    private int edgeToSink;
-    private boolean transposed;
-    /**
-     * Constructs the object.
-     *
-     * @param      picture  The picture
-     */
-    public SeamCarver(Picture picture) {
-        this.picture = picture;
-        this.width = picture.width();
-        this.height = picture.height();
-        this.energy = new double[width][height];
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height ; j++) {
-                if (i == 0 || j == 0 || i == width - 1 || j == height - 1) {
-                    energy[i][j] = 1000.0;
-                } else {
-                    energy[i][j] = gradient(i, j);
-                }
-            }
+    for (int i = 0; i < distTo.length; i++) {
+      for (int j = 0; j < distTo[i].length; j++) {
+        distTo[i][j] = Double.MAX_VALUE;
+      }
+    }
+  }
+  private void relaxV(int row, int col, int[][] edgeTo, double[][] distTo) {
+    int nextRow = row + 1;
+    for (int i = -1; i <= 1; i++) {
+      int nextCol = col + i;
+      if (nextCol < 0 || nextCol >= width) {
+        continue;
+      }
+      //spl case for bottom element.
+      if (i == 0) {
+        if (distTo[nextRow][nextCol] >= distTo[row][col] + energy(nextCol, nextRow)) {
+          distTo[nextRow][nextCol] = distTo[row][col] + energy(nextCol, nextRow);
+          edgeTo[nextRow][nextCol] = i;
         }
+      }
+      if (distTo[nextRow][nextCol] > distTo[row][col] + energy(nextCol, nextRow)) {
+        distTo[nextRow][nextCol] = distTo[row][col] + energy(nextCol, nextRow);
+        edgeTo[nextRow][nextCol] = i;
+      }
     }
-    public double gradient(int i, int j) {
-        int x_gradient = x_gradient(i, j);
-        int y_gradient = y_gradient(i, j);
-        double en = Math.sqrt(x_gradient + y_gradient);
-        return en;
+  }
+  // remove horizontal seam from current picture
+  //time complexity is O(width * height)
+  public void removeHorizontalSeam(int[] seam) {
+    //handle exceptions
+    for (int col = 0; col < width; col++) {
+      for (int row = seam[col]; row < height - 1; row++) {
+        this.picture.set(col, row, this.picture.get(col, row + 1));
+      }
     }
-    public int x_gradient(int i, int j) {
-        Color color1 = picture.get(i - 1, j);
-        Color color2 = picture.get(i + 1, j);
-        int red = color1.getRed() - color2.getRed();
-        int green = color1.getGreen() - color2.getGreen();
-        int blue = color1.getBlue() - color2.getBlue();
-        int x_gradient = (red * red) + (green * green) + (blue * blue);
-        return x_gradient;
+    height--;
+  }
+  // remove vertical seam from current picture
+  //time complexity is O(width * height)
+  public void removeVerticalSeam(int[] seam) {
+    for (int row = 0; row < height; row++) {
+      for (int col = seam[row]; col < width - 1; col++) {
+        this.picture.set(col, row, this.picture.get(col + 1, row));
+      }
     }
-    public int y_gradient(int i, int j) {
-        Color color1 = picture.get(i, j - 1);
-        Color color2 = picture.get(i, j + 1);
-        int red = color1.getRed() - color2.getRed();
-        int green = color1.getGreen() - color2.getGreen();
-        int blue = color1.getBlue() - color2.getBlue();
-        int y_gradient = (red * red) + (green * green) + (blue * blue);
-        return y_gradient;
-    }
-    // current picture
-    public Picture picture() {
-        return picture;
-    }
-    // width of current picture
-    public int width() {
-        return width;
-    }
-
-    // height of current picture
-    public int height() {
-        return height;
-    }
-
-    // energy of pixel at column x and row y
-    public double energy(int x, int y) {
-        return energy[x][y];
-    }
-    // sequence of indices for horizontal seam
-    public int[] findHorizontalSeam() {
-        return new int[0];
-    }
-    // sequence of indices for vertical seam
-    public int[] findVerticalSeam() {
-        transposed = false;
-        distToSink = Double.POSITIVE_INFINITY;
-        edgeToSink = Integer.MAX_VALUE;
-        distTo = new double[width][height];
-        edgeTo = new int[width][height];
-        for (double[] r : distTo) {
-            Arrays.fill(r, Double.POSITIVE_INFINITY);
-        }
-        for (int[] r : edgeTo) {
-            Arrays.fill(r, Integer.MAX_VALUE);
-        }
-
-        // Relax the entire top row, since this is our starting row
-        Arrays.fill(distTo[0], (double) 1000);
-        Arrays.fill(edgeTo[0], -1);
-
-        // Visit all pixels from the top, diagonally to the right,
-        // in keeping with topological order.
-        // The topological order is the reverse of the DFS post-order,
-        // which visits the left-most adjacent pixel first, before it visits
-        // pixels to the right.
-        for (int top = width() - 1; top >= 0; top--) {
-            for (int depth = 0;
-                    depth + top < width() && depth < height();
-                    depth++) {
-                visit(depth, depth + top);
-            }
-        }
-        // Visit all pixels from the left side, diagonally to the right,
-        // in keeping widthth the topological order described above.
-        for (int depth = 1; depth < height(); depth++) {
-            for (int out = 0;
-                    out < width() && depth + out < height();
-                    out++) {
-                visit(depth + out, out);
-            }
-        }
-
-        // Populate seam[] widthth the shortest path
-        int[] seam = new int[width()];
-        seam[height() - 1] = edgeToSink;
-
-        for (int i = height() - 1; i > 0; i--) {
-            seam[i - 1] = edgeTo[i][seam[i]];
-        }
-
-        // null out our shortest-path arrays for garbage collection
-        distTo = null;
-        edgeTo = null;
-
-        return seam;
-    }
-    // remove horizontal seam from current picture
-    public void removeHorizontalSeam(int[] seam) {
-
-    }
-
-    // remove vertical seam from current picture
-    public void removeVerticalSeam(int[] seam) {
-
-    }
-    private void visit(int i, int j) {
-        if (transposed) {
-            // Only relax the sink
-            if (j == width() - 1) {
-                relax(i, j);
-            }
-
-            // Bottom edge; relax to the right and above
-            else if (i == height() - 1) {
-                relax(i, j, i, j + 1);
-                relax(i, j, i - 1, j + 1);
-            }
-
-            // Top edge; relax to the right and below
-            else if (i == 0) {
-                relax(i, j, i, j + 1);
-                relax(i, j, i + 1, j + 1);
-            }
-
-            // Middle pixel; relax right, below, and above
-            else {
-                relax(i, j, i - 1, j + 1);
-                relax(i, j, i, j + 1);
-                relax(i, j, i + 1, j + 1);
-            }
-        }
-
-        else {
-            // Only relax the sink
-            if (i == height() - 1) {
-                relax(i, j);
-            }
-
-            // Right edge; relax below and to the left
-            else if (j == width() - 1) {
-                relax(i, j, i + 1, j - 1);
-                relax(i, j, i + 1, j);
-            }
-
-            // Left edge; relax below and to the right
-            else if (j == 0) {
-                relax(i, j, i + 1, j);
-                relax(i, j, i + 1, j + 1);
-            }
-
-            // Middle pixel; relax left, below, and right
-            else {
-                relax(i, j, i + 1, j - 1);
-                relax(i, j, i + 1, j);
-                relax(i, j, i + 1, j + 1);
-            }
-        }
-    }
-
-    /**
-     * Given an index, relax the sink vertex from that index.
-     *
-     * This method should only be called on the "last" vertices in the image.
-     *
-     * @param i the vertical index of the pixel
-     * @param j the horizontal index of the pixel
-     */
-    private void relax(int i, int j) {
-        if (distToSink > distTo[i][j]) {
-            distToSink = distTo[i][j];
-            if (transposed) {
-                edgeToSink = i;
-            } else {
-                edgeToSink = j;
-            }
-        }
-        //}
-    }
-    private void relax(int i1, int j1, int i2, int j2) {
-        if (distTo[i2][j2] > distTo[i1][j1] + energy[i2][j2]) {
-            distTo[i2][j2] = distTo[i1][j1] + energy[i2][j2];
-            if (transposed) {
-                edgeTo[i2][j2] = i1;
-            } else {
-                edgeTo[i2][j2] = j1;
-            }
-        }
-    }
+    width--;
+  }
 }
