@@ -16,7 +16,7 @@ public final class Quick3way {
 
     /**
      * Rearranges the array of strings in ascending order.
-     *
+     * time complexity is O(1)
      * @param a the array to be sorted
      */
     public static void sort(final String[] a) {
@@ -30,7 +30,7 @@ public final class Quick3way {
      *
      * @param      s     { parameter_description }
      * @param      d     { parameter_description }
-     *
+     * time complexity is O(1)
      * @return     { description_of_the_return_value }
      */
     private static int charAt(final String s, final int d) {
@@ -44,7 +44,7 @@ public final class Quick3way {
 
     /**
      * Sorting.
-     *
+     * time complexity is O(n)
      * @param      a     { parameter_description }
      * @param      lo    The lower
      * @param      hi    The higher
@@ -84,7 +84,7 @@ public final class Quick3way {
 
     /**
      * Insertion.
-     *
+     * time complexity is O(n^2)
      * @param      a     { parameter_description }
      * @param      lo    The lower
      * @param      hi    The higher
@@ -101,7 +101,7 @@ public final class Quick3way {
 
     /**
      * Exchange.
-     *
+     * time complexity is O(1)
      * @param      a     { parameter_description }
      * @param      i     { parameter_description }
      * @param      j     { parameter_description }
@@ -121,7 +121,7 @@ public final class Quick3way {
 
     /**
      * checks if less.
-     *
+     * time complexity is O(n)
      * @param      v     { different elements. }
      * @param      w     { different elements. }
      * @param      d     { parameter_description }
@@ -142,7 +142,7 @@ public final class Quick3way {
     }
     /**
      * Determines if sorted.
-     *
+     * time complexity is O(n)
      * @param      a     { parameter_description }
      *
      * @return     True if sorted, False otherwise.

@@ -11,7 +11,7 @@ public final class Solution {
     }
     /**
      * main class.
-     *
+     * time complexity is O(n^2)
      * @param args  The arguments.
      */
     public static void main(final String[] args) {
