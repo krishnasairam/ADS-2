@@ -5,6 +5,12 @@ import java.util.Arrays;
  */
 public final class Solution {
     /**
+     * Constructs the object.
+     */
+    private Solution() {
+
+    }
+    /**
      *the method to print the energies in.
      * grid format.
      * time complexity is O(W * H)
@@ -25,7 +31,7 @@ public final class Solution {
             }
             StdOut.println();
         }
-         } catch (Exception e){
+         } catch (Exception e) {
         System.out.println();
         }
     }
@@ -155,3 +161,4 @@ public final class Solution {
         }
     }
 }
+

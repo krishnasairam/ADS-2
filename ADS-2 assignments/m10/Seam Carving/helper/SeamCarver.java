@@ -23,7 +23,7 @@ public class SeamCarver {
    */
   public SeamCarver(final Picture pic) throws Exception {
     if (pic == null) {
-      throw new IllegalArgumentException("picture is null");
+      throw new  IllegalArgumentException("picture is null");
     }
     this.picture = pic;
     width = picture.width();
