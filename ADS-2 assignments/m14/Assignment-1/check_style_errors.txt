@@ -145,9 +145,7 @@ Checkstyle ends with 141 errors.
 Starting audit...
 Audit done.
 Starting audit...
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m14\Assignment-1\Solution.java:0: File does not end with a newline. [NewlineAtEndOfFile]
 Audit done.
-Checkstyle ends with 1 errors.
 Starting audit...
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m14\Assignment-1\TST.java:1: Missing a Javadoc comment. [JavadocType]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m14\Assignment-1\TST.java:2:5: Missing a Javadoc comment. [JavadocVariable]
