@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class TrieSET implements Iterable<String> {
     private static final int R = 256;        // extended ASCII
 
@@ -200,3 +202,8 @@ public class TrieSET implements Iterable<String> {
                 return x;
         return null;
     }
+     public boolean hasPrefix(String query) {
+        Node x = get(root, query, 0);
+        return x != null;
+    }
+}

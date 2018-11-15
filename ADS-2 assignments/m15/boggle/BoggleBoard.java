@@ -73,7 +73,7 @@ public class BoggleBoard {
             }
         }
     }
-    
+
     /**
      * Initializes a board from the given filename.
      * @param filename the name of the file containing the Boggle board
@@ -94,7 +94,7 @@ public class BoggleBoard {
                     throw new IllegalArgumentException("invalid character: " + letter);
                 else if (!ALPHABET.contains(letter))
                     throw new IllegalArgumentException("invalid character: " + letter);
-                else 
+                else
                     board[i][j] = letter.charAt(0);
             }
         }
@@ -223,5 +223,5 @@ public class BoggleBoard {
         StdOut.println(board4);
         StdOut.println();
     }
-    
+
 }
