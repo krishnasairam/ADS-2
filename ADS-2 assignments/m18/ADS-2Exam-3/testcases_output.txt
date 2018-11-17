@@ -168,10 +168,16 @@ right
 words
 
 Your Output: 
-is
-right
-hello
+704
+6
+22
+2
+87
+42
 words
+right
+is
+hello
 ----------------------------------------
 
 ########## Testcase 4: Failed ##########
@@ -225,8 +231,8 @@ keep
 Your Output: 
 Exception in thread "main" java.util.NoSuchElementException: Priority queue underflow
 	at MaxPQ.delMax(MaxPQ.java:174)
-	at T9.getSuggestions(Solution.java:135)
-	at T9.t9(Solution.java:144)
+	at T9.getSuggestions(Solution.java:136)
+	at T9.t9(Solution.java:145)
 	at Solution.main(Solution.java:70)
 ----------------------------------------
 
