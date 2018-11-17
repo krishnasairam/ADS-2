@@ -88,7 +88,7 @@ public class Solution {
 	// Don't modify this method.
 
 	/**
-	 * { function_description }
+	 * toREadFile.
 	 *
 	 * @param      file  The file
 	 *
@@ -105,7 +105,8 @@ public class Solution {
  *
  * @return     { description_of_the_return_value }
  */
-	public static BinarySearchST<String, Integer> loadDictionary(final String file) {
+	public static BinarySearchST<String, Integer>
+	 loadDictionary(final String file) {
 		BinarySearchST<String, Integer>  st =
 		 new BinarySearchST<String, Integer>();
 		String[] words = toReadFile(file);
@@ -134,7 +135,7 @@ class T9 {
 	 *
 	 * @param      st    { parameter_description }
 	 */
-	public T9(final BinarySearchST<String, Integer> st) {
+	T9(final BinarySearchST<String, Integer> st) {
 		// your code goes here
 		dict = new TST();
         for (String word : st.keys()) {
@@ -176,7 +177,8 @@ class T9 {
 	 *
 	 * @return     The suggestions.
 	 */
-	public Iterable<String> getSuggestions(final Iterable<String> words, final int k) {
+	public Iterable<String> getSuggestions(final
+	 Iterable<String> words, final int k) {
 		// your code goes here
 		int temp = k;
 		MaxPQ<Integer> pq = new MaxPQ<Integer>();
@@ -206,3 +208,4 @@ class T9 {
 		return getSuggestions(potentialWords(t9Signature), k);
 	}
 }
+
