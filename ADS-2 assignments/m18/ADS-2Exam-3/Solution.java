@@ -3,7 +3,7 @@ import java.util.Arrays;
 /**
  * Class for solution.
  */
-public final class Solution {
+final class Solution {
     /**
      * main.
      *
@@ -41,8 +41,7 @@ public final class Solution {
             int count = 0;
             while (scan.hasNextLine()) {
                 String t9Signature = scan.nextLine();
-                for (String each : t9.potentialWords
-                    (t9Signature)) {
+    for (String each : t9.potentialWords(t9Signature)) {
                     count++;
                     System.out.println(each);
                 }
@@ -209,6 +208,7 @@ class T9 {
         return getSuggestions(potentialWords(t9Signature), k);
     }
 }
+
 
 
 
