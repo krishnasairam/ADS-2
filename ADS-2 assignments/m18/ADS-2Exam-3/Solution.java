@@ -88,14 +88,19 @@ public class Solution {
 	public static BinarySearchST<String, Integer> loadDictionary(String file) {
 		BinarySearchST<String, Integer>  st = new BinarySearchST<String, Integer>();
 		String[] words = toReadFile(file);
+		int len = words.length;
+		boolean[] mark = new boolean[len];
 		for (int i = 0; i < words.length; i++) {
 			int frq = 0;
-			for (int j = 0; j < words.length; j++) {
-				if (words[i].equals(words[j])) {
+			for (int j = i + 1; j < words.length; j++) {
+				if (words[i].equals(words[j]) && !mark[j]) {
+					mark[j] = true;
 					frq++;
 				}
 			}
-			st.put(words[i], frq);
+			if (!mark[i]) {
+				st.put(words[i], frq);
+			}
 		}
 		return st;
 	}
