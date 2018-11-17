@@ -160,7 +160,7 @@ Your Output:
 No valid words found.
 ----------------------------------------
 
-########## Testcase 3: Failed ##########
+########## Testcase 3: Passed ##########
 Expected Output: 
 hello
 is
@@ -168,16 +168,10 @@ right
 words
 
 Your Output: 
-704
-6
-22
-2
-87
-42
-words
-right
-is
 hello
+is
+right
+words
 ----------------------------------------
 
 ########## Testcase 4: Failed ##########
@@ -231,8 +225,8 @@ keep
 Your Output: 
 Exception in thread "main" java.util.NoSuchElementException: Priority queue underflow
 	at MaxPQ.delMax(MaxPQ.java:174)
-	at T9.getSuggestions(Solution.java:136)
-	at T9.t9(Solution.java:145)
+	at T9.getSuggestions(Solution.java:135)
+	at T9.t9(Solution.java:144)
 	at Solution.main(Solution.java:70)
 ----------------------------------------
 

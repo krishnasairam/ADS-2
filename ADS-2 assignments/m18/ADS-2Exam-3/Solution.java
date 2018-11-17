@@ -125,11 +125,10 @@ class T9 {
 	public Iterable<String> getSuggestions(Iterable<String> words, int k) {
 		// your code goes here
 		MaxPQ<Integer> pq = new MaxPQ<Integer>();
-		MaxPQ<String> q = new MaxPQ<String>();
+		MinPQ<String> q = new MinPQ<String>();
 		BinarySearchST<Integer, String>  ne = new BinarySearchST<Integer, String>();
 		for (String str : words) {
 			pq.insert((Integer)(dict.get(str)));
-			System.out.println((Integer)(dict.get(str)));
 			ne.put((Integer)(dict.get(str)), str);
 		}
 		while (k > 0) {
