@@ -1,9 +1,5 @@
 Starting audit...
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\Solution.java:6: Class Solution should be declared as final. [FinalClass]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\Solution.java:7: First sentence should end with a period. [JavadocStyle]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\Solution.java:10:23: '{' is not preceded with whitespace. [WhitespaceAround]
 Audit done.
-Checkstyle ends with 3 errors.
 Files to process must be specified, found 0.
 Files to process must be specified, found 0.
 Files to process must be specified, found 0.
