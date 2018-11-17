@@ -3,7 +3,13 @@ import java.util.Arrays;
 /**
  * Class for solution.
  */
-class Solution {
+public class Solution {
+    /**
+     * h
+     */
+    private Solution(){
+        //unused.
+    }
     /**
      * main.
      *
@@ -208,6 +214,7 @@ class T9 {
         return getSuggestions(potentialWords(t9Signature), k);
     }
 }
+
 
 
 
