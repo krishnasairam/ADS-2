@@ -225,8 +225,8 @@ keep
 Your Output: 
 Exception in thread "main" java.util.NoSuchElementException: Priority queue underflow
 	at MaxPQ.delMax(MaxPQ.java:174)
-	at T9.getSuggestions(Solution.java:193)
-	at T9.t9(Solution.java:208)
-	at Solution.main(Solution.java:76)
+	at T9.getSuggestions(Solution.java:194)
+	at T9.t9(Solution.java:209)
+	at Solution.main(Solution.java:77)
 ----------------------------------------
 
