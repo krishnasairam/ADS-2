@@ -93,7 +93,7 @@ public class Solution {
 		int len = words.length;
 		boolean[] mark = new boolean[len];
 		for (int i = 0; i < words.length; i++) {
-			int frq = 0;
+			int frq = 1;
 			for (int j = i + 1; j < words.length; j++) {
 				if (words[i].equals(words[j]) && !mark[j]) {
 					mark[j] = true;
