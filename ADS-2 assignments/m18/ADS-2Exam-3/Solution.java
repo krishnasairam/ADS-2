@@ -89,7 +89,7 @@ public class Solution {
 		BinarySearchST<String, Integer>  st = new BinarySearchST<String, Integer>();
 		String[] words = toReadFile(file);
 		String asString = Arrays.toString(words);
-        words = asString.toLowerCase().split(" ");
+        words = asString.toLowerCase().split(", ");
 		int len = words.length;
 		boolean[] mark = new boolean[len];
 		for (int i = 0; i < words.length; i++) {
