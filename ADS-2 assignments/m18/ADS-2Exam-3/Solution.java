@@ -90,21 +90,14 @@ public class Solution {
 		String[] words = toReadFile(file);
 		String asString = Arrays.toString(words);
         words = asString.toLowerCase().split(", ");
-		int len = words.length;
-		boolean[] mark = new boolean[len];
-		for (int i = 0; i < words.length; i++) {
-			int frq = 1;
-			for (int j = i + 1; j < words.length; j++) {
-				if (words[i].equals(words[j]) && !mark[j]) {
-					mark[j] = true;
-					frq++;
-				}
-			}
-			if (!mark[i]) {
-				st.put(words[i], frq);
-			}
-		}
-		return st;
+		for (String str : words) {
+            if (st.contains(str)) {
+                st.put(str, 1 + st.get(str));
+            } else {
+                st.put(str, 1);
+            }
+        }
+        return st;
 	}
 
 }
@@ -126,7 +119,7 @@ class T9 {
 
 	public Iterable<String> potentialWords(String t9Signature) {
 		// your code goes here
-		return null;
+		return dict.keysThatMatch(t9Signature);
 	}
 
 	// return all possibilities(words), find top k with highest frequency.
