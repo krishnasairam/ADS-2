@@ -90,7 +90,7 @@ public class Solution {
 		String[] words = toReadFile(file);
 		for (int i = 0; i < words.length; i++) {
 			int frq = 0;
-			for (int j = i + 1; j < words.length; j++) {
+			for (int j = 0; j < words.length; j++) {
 				if (words[i].equals(words[j])) {
 					frq++;
 				}

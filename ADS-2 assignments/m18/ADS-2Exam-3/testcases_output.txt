@@ -10,14 +10,7 @@ Expected Output:
 149
 
 Your Output: 
-0
-0
-0
-0
-0
-0
-0
-0
+
 ----------------------------------------
 
 ########## Testcase 1: Failed ##########
@@ -57,8 +50,7 @@ messagesome
 going
 
 Your Output: 
-Exception in thread "main" java.lang.NullPointerException
-	at Solution.main(Solution.java:26)
+
 ----------------------------------------
 
 ########## Testcase 2: Failed ##########
@@ -126,8 +118,7 @@ fine
 seeking
 
 Your Output: 
-Exception in thread "main" java.lang.NullPointerException
-	at Solution.main(Solution.java:38)
+
 ----------------------------------------
 
 ########## Testcase 3: Failed ##########
@@ -138,8 +129,7 @@ right
 words
 
 Your Output: 
-Exception in thread "main" java.lang.NullPointerException
-	at Solution.main(Solution.java:57)
+
 ----------------------------------------
 
 ########## Testcase 4: Failed ##########
@@ -191,7 +181,6 @@ paper
 keep
 
 Your Output: 
-Exception in thread "main" java.lang.NullPointerException
-	at Solution.main(Solution.java:70)
+
 ----------------------------------------
 
