@@ -9,14 +9,15 @@ public class Solution {
 	 *
 	 * @param      args  The arguments
 	 */
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		Scanner scan = new Scanner(System.in);
 		String cases = scan.nextLine();
 
 		switch (cases) {
 		case "loadDictionary":
 			// input000.txt and output000.txt
-			BinarySearchST<String, Integer> hash = loadDictionary("/Files/t9.csv");
+			BinarySearchST<String, Integer> hash =
+			 loadDictionary("/Files/t9.csv");
 			while (scan.hasNextLine()) {
 				String key = scan.nextLine();
 				System.out.println(hash.get(key));
@@ -93,7 +94,7 @@ public class Solution {
 	 *
 	 * @return     { description_of_the_return_value }
 	 */
-	public static String[] toReadFile(String file) {
+	public static String[] toReadFile(final String file) {
 		In in = new In(file);
 		return in.readAllStrings();
 	}
@@ -104,8 +105,9 @@ public class Solution {
  *
  * @return     { description_of_the_return_value }
  */
-	public static BinarySearchST<String, Integer> loadDictionary(String file) {
-		BinarySearchST<String, Integer>  st = new BinarySearchST<String, Integer>();
+	public static BinarySearchST<String, Integer> loadDictionary(final String file) {
+		BinarySearchST<String, Integer>  st =
+		 new BinarySearchST<String, Integer>();
 		String[] words = toReadFile(file);
 		String asString = Arrays.toString(words);
         words = asString.toLowerCase().split(", ");
@@ -132,7 +134,7 @@ class T9 {
 	 *
 	 * @param      st    { parameter_description }
 	 */
-	public T9(BinarySearchST<String, Integer> st) {
+	public T9(final BinarySearchST<String, Integer> st) {
 		// your code goes here
 		dict = new TST();
         for (String word : st.keys()) {
@@ -149,7 +151,7 @@ class T9 {
 	 *
 	 * @return     All words.
 	 */
-	public Iterable<String> getAllWords(String prefix) {
+	public Iterable<String> getAllWords(final String prefix) {
 		return dict.keysWithPrefix(prefix);
 	}
 	/**
@@ -159,7 +161,7 @@ class T9 {
 	 *
 	 * @return     { description_of_the_return_value }
 	 */
-	public Iterable<String> potentialWords(String t9Signature) {
+	public Iterable<String> potentialWords(final String t9Signature) {
 		// your code goes here
 		return dict.keysThatMatch(t9Signature);
 	}
@@ -174,18 +176,20 @@ class T9 {
 	 *
 	 * @return     The suggestions.
 	 */
-	public Iterable<String> getSuggestions(Iterable<String> words, int k) {
+	public Iterable<String> getSuggestions(final Iterable<String> words, final int k) {
 		// your code goes here
+		int temp = k;
 		MaxPQ<Integer> pq = new MaxPQ<Integer>();
 		MinPQ<String> q = new MinPQ<String>();
-		BinarySearchST<Integer, String>  ne = new BinarySearchST<Integer, String>();
+		BinarySearchST<Integer, String>  ne =
+		 new BinarySearchST<Integer, String>();
 		for (String str : words) {
-			pq.insert((Integer)(dict.get(str)));
-			ne.put((Integer)(dict.get(str)), str);
+			pq.insert((Integer) (dict.get(str)));
+			ne.put((Integer) (dict.get(str)), str);
 		}
-		while (k > 0) {
+		while (temp > 0) {
 			q.insert(ne.get(pq.delMax()));
-			k--;
+			temp--;
 		}
 		return q;
 	}
@@ -198,7 +202,7 @@ class T9 {
 	 *
 	 * @return     { description_of_the_return_value }
 	 */
-	public Iterable<String> t9(final String t9Signature,final int k) {
+	public Iterable<String> t9(final String t9Signature, final int k) {
 		return getSuggestions(potentialWords(t9Signature), k);
 	}
 }
