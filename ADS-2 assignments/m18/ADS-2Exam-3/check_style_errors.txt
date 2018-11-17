@@ -401,11 +401,14 @@ Starting audit...
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\Solution.java:125:9: Missing a Javadoc comment. [JavadocMethod]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\Solution.java:125:48: Parameter words should be final. [FinalParameters]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\Solution.java:125:72: Parameter k should be final. [FinalParameters]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\Solution.java:141:9: Missing a Javadoc comment. [JavadocMethod]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\Solution.java:141:36: Parameter t9Signature should be final. [FinalParameters]
-[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\Solution.java:141:56: Parameter k should be final. [FinalParameters]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\Solution.java:129: Line is longer than 80 characters (found 92). [LineLength]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\Solution.java:131:44: 'typecast' is not followed by whitespace. [WhitespaceAfter]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\Solution.java:132:41: 'typecast' is not followed by whitespace. [WhitespaceAfter]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\Solution.java:143:9: Missing a Javadoc comment. [JavadocMethod]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\Solution.java:143:36: Parameter t9Signature should be final. [FinalParameters]
+[ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\Solution.java:143:56: Parameter k should be final. [FinalParameters]
 Audit done.
-Checkstyle ends with 29 errors.
+Checkstyle ends with 32 errors.
 Starting audit...
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\TST.java:0: File does not end with a newline. [NewlineAtEndOfFile]
 [ERROR] C:\Users\krishna sairam\Downloads\sairam\ADS-2\ADS-2 assignments\m18\ADS-2Exam-3\TST.java:46: Line is longer than 80 characters (found 84). [LineLength]

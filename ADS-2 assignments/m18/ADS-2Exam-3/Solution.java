@@ -124,13 +124,15 @@ class T9 {
 	// return all possibilities(words), find top k with highest frequency.
 	public Iterable<String> getSuggestions(Iterable<String> words, int k) {
 		// your code goes here
-		MaxPQ pq = new MaxPQ();
-		Queue q = new Queue();
+		MaxPQ<Integer> pq = new MaxPQ<Integer>();
+		Queue<String> q = new Queue<String>();
+		BinarySearchST<Integer, String>  ne = new BinarySearchST<Integer, String>();
 		for (String str : words) {
-			pq.insert(dict.get(str));
+			pq.insert((Integer)(dict.get(str)));
+			ne.put((Integer)(dict.get(str)), str);
 		}
 		while (k > 0) {
-			q.enqueue(pq.delMax());
+			q.enqueue(ne.get(pq.delMax()));
 			k--;
 		}
 		return q;
